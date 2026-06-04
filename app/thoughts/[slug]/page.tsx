@@ -1,52 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import { posts, getPost } from "../../lib/posts";
-
-const markdownComponents = {
-  h2: ({ children }: { children?: React.ReactNode }) => (
-    <h2 className="font-serif text-2xl md:text-3xl font-medium text-warm-text leading-tight mt-16 mb-6">
-      {children}
-    </h2>
-  ),
-  h3: ({ children }: { children?: React.ReactNode }) => (
-    <h3 className="font-serif text-xl font-medium text-warm-text mt-10 mb-4">
-      {children}
-    </h3>
-  ),
-  p: ({ children }: { children?: React.ReactNode }) => (
-    <p className="text-warm-muted leading-[1.9] mb-6">{children}</p>
-  ),
-  ol: ({ children }: { children?: React.ReactNode }) => (
-    <ol className="list-decimal pl-6 space-y-3 mb-6 text-warm-muted leading-[1.9] marker:text-warm-accent">
-      {children}
-    </ol>
-  ),
-  ul: ({ children }: { children?: React.ReactNode }) => (
-    <ul className="list-disc pl-6 space-y-3 mb-6 text-warm-muted leading-[1.9] marker:text-warm-accent">
-      {children}
-    </ul>
-  ),
-  li: ({ children }: { children?: React.ReactNode }) => (
-    <li className="pl-1">{children}</li>
-  ),
-  hr: () => <hr className="border-warm-border my-12" />,
-  strong: ({ children }: { children?: React.ReactNode }) => (
-    <strong className="font-medium text-warm-text">{children}</strong>
-  ),
-  em: ({ children }: { children?: React.ReactNode }) => (
-    <em className="italic">{children}</em>
-  ),
-  a: ({ href, children }: { href?: string; children?: React.ReactNode }) => (
-    <a
-      href={href}
-      className="text-warm-accent underline underline-offset-4 hover:opacity-80"
-    >
-      {children}
-    </a>
-  ),
-};
+import GatedPost from "../../components/GatedPost";
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
@@ -102,11 +57,7 @@ export default async function PostPage({
 
         <hr className="border-warm-border mb-12" />
 
-        <div>
-          <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
-            {post.content}
-          </ReactMarkdown>
-        </div>
+        <GatedPost slug={post.slug} />
 
         <div className="mt-16 pt-8 border-t border-warm-border">
           <Link

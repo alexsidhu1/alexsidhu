@@ -54,10 +54,11 @@ export default function Home() {
                   <br />
                   Sidhu
                 </h1>
-                <p className="text-lg md:text-xl text-warm-muted max-w-md leading-relaxed">
+                <p className="text-lg md:text-xl text-warm-muted max-w-md leading-relaxed mb-8">
                   This is a place to share my thoughts on AI, my life, the
                   world and my place in it :)
                 </p>
+                <SubscribeForm />
               </div>
               <div className="w-44 sm:w-56 md:w-72 aspect-square overflow-hidden bg-cream-dark shrink-0">
                 <Image
