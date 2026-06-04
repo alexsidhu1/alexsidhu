@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Nav from "./components/Nav";
+import SubscribeForm from "./components/SubscribeForm";
 import { posts } from "./lib/posts";
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
@@ -66,15 +67,15 @@ export default function Home() {
         {/* ── Hero ── */}
         <section id="home" className="min-h-[92vh] flex items-center">
           <div className="max-w-5xl mx-auto px-6 w-full py-24">
-            <SectionLabel>Hello</SectionLabel>
+            <SectionLabel>Hey there, I&apos;m</SectionLabel>
             <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[96px] font-medium text-warm-text leading-none tracking-tight mb-10">
               Alex
               <br />
               Sidhu
             </h1>
             <p className="text-lg md:text-xl text-warm-muted max-w-md leading-relaxed">
-              Thinking deeply about simple things, and building a better future
-              — for both myself and the world.
+              This is a place to share my thoughts on AI, my life, the world
+              and my place in it :)
             </p>
           </div>
         </section>
@@ -91,7 +92,7 @@ export default function Home() {
             <div className="grid md:grid-cols-[220px_1fr] gap-10 md:gap-20 items-start">
               <div className="w-[200px] md:w-full aspect-square overflow-hidden bg-cream-dark">
                 <Image
-                  src="/alex.jpg"
+                  src="/alexsidhuprofpic.jpeg"
                   alt="Alex Sidhu"
                   width={440}
                   height={440}
@@ -200,6 +201,27 @@ export default function Home() {
 
         <Divider />
 
+        {/* ── Subscribe ── */}
+        <section id="subscribe" className="py-28 md:py-36">
+          <div className="max-w-5xl mx-auto px-6">
+            <div className="grid md:grid-cols-[220px_1fr] gap-12 md:gap-20">
+              <div>
+                <SectionLabel>Newsletter</SectionLabel>
+                <SectionHeading>Subscribe</SectionHeading>
+              </div>
+              <div className="space-y-8">
+                <p className="text-warm-muted leading-[1.85] max-w-md">
+                  Occasional thoughts on AI, building, and life. No spam, just
+                  the writing. Unsubscribe anytime.
+                </p>
+                <SubscribeForm />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <Divider />
+
         {/* ── Contact ── */}
         <section id="contact" className="py-28 md:py-36">
           <div className="max-w-5xl mx-auto px-6">
@@ -216,10 +238,10 @@ export default function Home() {
                 </p>
                 <div className="space-y-4">
                   <a
-                    href="mailto:alex@whitehorsedigital.com.au"
+                    href="mailto:alex@whitehorseai.ai"
                     className="block text-warm-text hover:text-warm-accent transition-colors font-medium"
                   >
-                    alex@whitehorsedigital.com.au
+                    alex@whitehorseai.ai
                   </a>
                   <div className="flex gap-6 text-sm">
                     <a

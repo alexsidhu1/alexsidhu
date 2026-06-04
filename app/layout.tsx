@@ -14,8 +14,27 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Alex Sidhu",
-  description: "Builder, thinker, human.",
+  metadataBase: new URL("https://alexsidhu.com"),
+  title: {
+    default: "Alex Sidhu",
+    template: "%s · Alex Sidhu",
+  },
+  description:
+    "Alex Sidhu, co-founder of Whitehorse AI in Sydney. Thoughts on AI, building businesses, and life, plus a newsletter.",
+  openGraph: {
+    title: "Alex Sidhu",
+    description:
+      "Thoughts on AI, building businesses, and life, plus a newsletter.",
+    url: "https://alexsidhu.com",
+    siteName: "Alex Sidhu",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Alex Sidhu",
+    description:
+      "Thoughts on AI, building businesses, and life, plus a newsletter.",
+  },
 };
 
 export default function RootLayout({
