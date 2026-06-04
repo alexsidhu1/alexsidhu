@@ -28,27 +28,6 @@ function Divider() {
   );
 }
 
-const projects = [
-  {
-    name: "White Horse Digital",
-    year: "2022–present",
-    description:
-      "A boutique digital studio helping founders and teams build products worth building. Strategy, design, and development — done carefully.",
-  },
-  {
-    name: "Project Placeholder",
-    year: "2024",
-    description:
-      "A brief description of a product, tool, or initiative you built. What it does, who it's for, and why it matters. Be specific — the best descriptions say exactly what the thing is.",
-  },
-  {
-    name: "Project Placeholder",
-    year: "2023",
-    description:
-      "Another project here. Keep it honest and direct. The most compelling project descriptions don't oversell — they just describe the thing clearly and let it speak for itself.",
-  },
-];
-
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString("en-AU", {
     year: "numeric",
@@ -67,16 +46,30 @@ export default function Home() {
         {/* ── Hero ── */}
         <section id="home" className="min-h-[92vh] flex items-center">
           <div className="max-w-5xl mx-auto px-6 w-full py-24">
-            <SectionLabel>Hey there, I&apos;m</SectionLabel>
-            <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[96px] font-medium text-warm-text leading-none tracking-tight mb-10">
-              Alex
-              <br />
-              Sidhu
-            </h1>
-            <p className="text-lg md:text-xl text-warm-muted max-w-md leading-relaxed">
-              This is a place to share my thoughts on AI, my life, the world
-              and my place in it :)
-            </p>
+            <div className="grid md:grid-cols-[1fr_auto] gap-12 md:gap-16 items-center">
+              <div>
+                <SectionLabel>Hey there, I&apos;m</SectionLabel>
+                <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[96px] font-medium text-warm-text leading-none tracking-tight mb-10">
+                  Alex
+                  <br />
+                  Sidhu
+                </h1>
+                <p className="text-lg md:text-xl text-warm-muted max-w-md leading-relaxed">
+                  This is a place to share my thoughts on AI, my life, the
+                  world and my place in it :)
+                </p>
+              </div>
+              <div className="w-44 sm:w-56 md:w-72 aspect-square overflow-hidden bg-cream-dark shrink-0">
+                <Image
+                  src="/alexsidhuprofpic.jpeg"
+                  alt="Alex Sidhu"
+                  width={440}
+                  height={440}
+                  priority
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
           </div>
         </section>
 
@@ -89,71 +82,23 @@ export default function Home() {
               <SectionLabel>About</SectionLabel>
               <SectionHeading>Who I am</SectionHeading>
             </div>
-            <div className="grid md:grid-cols-[220px_1fr] gap-10 md:gap-20 items-start">
-              <div className="w-[200px] md:w-full aspect-square overflow-hidden bg-cream-dark">
-                <Image
-                  src="/alexsidhuprofpic.jpeg"
-                  alt="Alex Sidhu"
-                  width={440}
-                  height={440}
-                  priority
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="space-y-5 text-warm-muted leading-[1.85]">
-                <p>
-                  My name is Alex Sidhu. I&apos;m 25 and live in Sydney, with
-                  plans to move to the US. I play basketball semi-professionally,
-                  and run two businesses. I&apos;m deeply interested (to a fault
-                  sometimes) in thinking deeply about simple things and building
-                  a better future — for both myself and the world.
-                </p>
-                <p>
-                  I felt like I needed a place to capture my thoughts. I&apos;ve
-                  put off doing this for a while because I feel like action and
-                  creating great things is better and more respectable than
-                  entertaining analytical bourgeois behaviour. But I think deep
-                  introspection — putting thoughts to paper, and doing it
-                  consistently — is important.
-                </p>
-                <p className="font-serif text-warm-text text-lg italic">
-                  Enjoy.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <Divider />
-
-        {/* ── Work ── */}
-        <section id="work" className="py-28 md:py-36">
-          <div className="max-w-5xl mx-auto px-6">
-            <div className="mb-14">
-              <SectionLabel>Selected work</SectionLabel>
-              <SectionHeading>What I&apos;ve Built</SectionHeading>
-            </div>
-            <div className="border-t border-warm-border">
-              {projects.map((project) => (
-                <div
-                  key={project.name}
-                  className="grid md:grid-cols-[1fr_auto] gap-4 py-8 border-b border-warm-border"
-                >
-                  <div>
-                    <div className="flex items-baseline gap-4 mb-2">
-                      <h3 className="font-serif text-xl md:text-2xl text-warm-text">
-                        {project.name}
-                      </h3>
-                      <span className="text-sm text-warm-muted shrink-0">
-                        {project.year}
-                      </span>
-                    </div>
-                    <p className="text-warm-muted leading-relaxed max-w-xl text-sm md:text-base">
-                      {project.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
+            <div className="max-w-2xl space-y-5 text-warm-muted leading-[1.85]">
+              <p>
+                My name is Alex Sidhu. I&apos;m 25 and live in Sydney, with
+                plans to move to the US. I play basketball semi-professionally,
+                and run two businesses. I&apos;m deeply interested (to a fault
+                sometimes) in thinking deeply about simple things and building a
+                better future — for both myself and the world.
+              </p>
+              <p>
+                I felt like I needed a place to capture my thoughts. I&apos;ve
+                put off doing this for a while because I feel like action and
+                creating great things is better and more respectable than
+                entertaining analytical bourgeois behaviour. But I think deep
+                introspection — putting thoughts to paper, and doing it
+                consistently — is important.
+              </p>
+              <p className="font-serif text-warm-text text-lg italic">Enjoy.</p>
             </div>
           </div>
         </section>

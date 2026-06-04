@@ -114,60 +114,6 @@ Say hi to your mum.
 Peace,
 Alex`,
   },
-  {
-    slug: "on-building-things",
-    title: "On Building Things",
-    date: "2026-04-22",
-    excerpt:
-      "Why the act of making something — anything — teaches you more than any course or book ever could.",
-    content: `Building something from nothing is the best education I've found.
-
-Not because the output is always good — most of what I've made has been mediocre, broken, or simply wrong. But the process of trying to make something real forces a kind of clarity that thinking alone never quite delivers.
-
-[Placeholder — expand on why building is the best teacher. Talk about what you learned from a specific project that failed, and what you took from it. Be specific — readers connect to specifics, not generalities.]
-
-There's something that happens when you move from idea to reality. The idea has infinite potential. The thing you built has none — it works or it doesn't, it resonates or it doesn't, it holds together or it falls apart. That constraint is brutal and essential.
-
-[Placeholder — write about the gap between the thing you imagined and the thing you made. The surprise of what worked. The humiliation of what didn't. The strange satisfaction of shipping something imperfect but real.]
-
-The thing about building is that the feedback loop is honest. You either made something useful, or you didn't. That honesty is humbling. It's also the point.`,
-  },
-  {
-    slug: "the-slow-advantage",
-    title: "The Slow Advantage",
-    date: "2026-03-10",
-    excerpt:
-      "In a world obsessed with speed, patience might be the most underrated competitive edge.",
-    content: `Everyone wants to move fast. Fast feedback, fast growth, fast decisions. I get it — velocity matters. But there's a version of fast that's really just impatience dressed up as urgency.
-
-And impatience is expensive.
-
-[Placeholder — write about a time when moving fast cost you more than it saved. A decision made too quickly, a product shipped before it was ready, a relationship rushed past something important. What was the actual cost?]
-
-Slowness, done well, is not laziness. It's attention. It's giving something enough time to reveal itself before you decide what to do with it. It's the discipline to resist the pressure to react before you understand.
-
-[Placeholder — write about the moments where slowing down produced a better outcome. The conversation you had when you stopped trying to solve and started trying to understand. The decision you made when you waited an extra day.]
-
-The slow advantage isn't about being slow. It's about choosing your pace deliberately — and not letting the noise of urgency override your judgement. In most domains worth caring about, the people who last are rarely the ones who moved fastest at the start.`,
-  },
-  {
-    slug: "first-principles",
-    title: "First Principles",
-    date: "2026-02-03",
-    excerpt:
-      "How to dissolve a complicated problem by asking the one question most people skip.",
-    content: `Most hard problems aren't actually hard. They're complicated — layered with assumptions, legacy decisions, and inherited constraints that nobody questions anymore.
-
-First principles thinking is the practice of stripping all of that away and asking: what do we actually know to be true here? What are we assuming? And what would we do if we started from scratch?
-
-[Placeholder — walk through a specific example. A problem you or someone else faced that looked hard but dissolved when you questioned the right assumption. What was the assumption? How did you find it? What changed when you did?]
-
-The question most people skip is the simplest one: why? Not to be difficult — but to understand. Most of the time, the "why" has an answer that made sense once, in a different context, under different constraints. It doesn't mean the answer still applies.
-
-[Placeholder — write about the resistance you face when questioning assumptions in a group. Why people defend inherited constraints even when they don't serve them. How to ask the first-principles question without making people feel attacked.]
-
-The goal isn't to blow everything up. It's to understand what you're actually building on — and to make sure those foundations are worth building on.`,
-  },
 ];
 
 export function getPost(slug: string): Post | undefined {

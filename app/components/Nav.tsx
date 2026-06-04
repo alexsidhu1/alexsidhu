@@ -5,7 +5,6 @@ import { useState } from "react";
 
 const navLinks = [
   { label: "About", href: "#about" },
-  { label: "Work", href: "#work" },
   { label: "Thoughts", href: "/thoughts", isRoute: true },
   { label: "Contact", href: "#contact" },
 ];
