@@ -54,9 +54,17 @@ export default function Home() {
                   <br />
                   Sidhu
                 </h1>
-                <p className="text-lg md:text-xl text-warm-muted max-w-md leading-relaxed mb-8">
+                <p className="text-lg md:text-xl text-warm-muted max-w-md leading-relaxed mb-6">
                   This is a place to share my thoughts on AI, my life, the
                   world and my place in it :)
+                </p>
+                <p className="text-base text-warm-muted max-w-md leading-relaxed mb-2">
+                  Each week I share a newsletter on everything going on with AI,
+                  my business (WhiteHorse AI) and (somewhat) differentiated
+                  takes.
+                </p>
+                <p className="text-base text-warm-text font-medium max-w-md leading-relaxed mb-8">
+                  Sign up below to receive it every Friday morning!
                 </p>
                 <SubscribeForm />
               </div>
