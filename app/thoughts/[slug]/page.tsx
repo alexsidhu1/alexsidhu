@@ -1,7 +1,60 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import ReactMarkdown from "react-markdown";
+import type { Components } from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { posts, getPost } from "../../lib/posts";
-import GatedPost from "../../components/GatedPost";
+
+const markdownComponents: Components = {
+  h2: ({ children }) => (
+    <h2 className="font-serif text-2xl md:text-3xl font-medium text-warm-text leading-tight mt-16 mb-6">
+      {children}
+    </h2>
+  ),
+  h3: ({ children }) => (
+    <h3 className="font-serif text-xl font-medium text-warm-text mt-10 mb-4">
+      {children}
+    </h3>
+  ),
+  p: ({ children }) => (
+    <p className="text-warm-muted leading-[1.9] mb-6">{children}</p>
+  ),
+  ol: ({ children }) => (
+    <ol className="list-decimal pl-6 space-y-3 mb-6 text-warm-muted leading-[1.9] marker:text-warm-accent">
+      {children}
+    </ol>
+  ),
+  ul: ({ children }) => (
+    <ul className="list-disc pl-6 space-y-3 mb-6 text-warm-muted leading-[1.9] marker:text-warm-accent">
+      {children}
+    </ul>
+  ),
+  li: ({ children }) => <li className="pl-1">{children}</li>,
+  hr: () => <hr className="border-warm-border my-12" />,
+  strong: ({ children }) => (
+    <strong className="font-medium text-warm-text">{children}</strong>
+  ),
+  em: ({ children }) => <em className="italic">{children}</em>,
+  a: ({ href, children }) => (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-warm-accent underline underline-offset-4 hover:opacity-80"
+    >
+      {children}
+    </a>
+  ),
+  img: ({ src, alt }) => (
+    <img
+      src={typeof src === "string" ? src : undefined}
+      alt={alt || ""}
+      loading="lazy"
+      className="rounded-lg border border-warm-border my-8 w-full"
+    />
+  ),
+};
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
@@ -57,7 +110,12 @@ export default async function PostPage({
 
         <hr className="border-warm-border mb-12" />
 
-        <GatedPost slug={post.slug} />
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          components={markdownComponents}
+        >
+          {post.content}
+        </ReactMarkdown>
 
         <div className="mt-16 pt-8 border-t border-warm-border">
           <Link
