@@ -46,6 +46,9 @@ function cleanHtml(html: string): string {
     .replace(/<meta[^>]*>/gi, "")
     .replace(/<\/?(?:html|body)[^>]*>/gi, "")
     .replace(/\s(?:style|class|id)=(["'])(?:(?!\1).)*\1/gi, "")
+    // demote content h1s to h2 (the page title is the only h1)
+    .replace(/<h1[^>]*>/gi, "<h2>")
+    .replace(/<\/h1>/gi, "</h2>")
     .trim();
 }
 
