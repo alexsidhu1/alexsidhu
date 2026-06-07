@@ -9,73 +9,111 @@ export type Post = {
 export const posts: Post[] = [
   {
     slug: "newsletter-01",
-    title: "Newsletter No. 01",
-    date: "2026-06-04",
+    title: "The Inaugural Newsletter",
+    date: "2026-06-07",
     excerpt:
-      "Five core offerings now live, the AI tools I actually use (and the hype I'm not buying), and why the NDIS budget is really a measure of the care we've outsourced.",
-    content: `## 1. New in the business
+      "The first newsletter. Breaking down what's new in the business, what's going on in AI, and my thoughts on the NDIS budget.",
+    content: `What up people,
+
+Thanks for being a part of the newsletter (and the first edition).
+
+For the TLDR here's what's good. Going to be running through:
+
+- what's new in the business
+- what AI tools I'm using (and new stuff in AI), and
+- my thoughts on the NDIS budget
+
+Enjoy :)
+
+## 💼 1. What's new in the biz
 
 So this week was a cool week.
 
-We have now officially moved into 5 core offerings.
+We have now officially solidified our core products. One thing we're trying to do more as we scale is to productise.
 
-1. We've launched our fully autonomous executive assistant: 1-click OpenClaw. Connect all your business apps and it can run 24/7 to do (pretty much) what your heart desires. Think daily reporting, summary of the day and week's work, Meta ads analysis, website deployment and updates. Plus you can connect it via your phone and get it set up all in less than 10 minutes. It will also run an accountability check each Sunday to see how well you're performing compared to the goals you laid out. We're calling it AxleClaw and having beta users test it currently. Think of it as a second brain for you. I use it to just dump voice notes in and then get it to action items.
-2. We audit companies. Essentially we'll go in, interview people, try to understand where inefficiencies might lie and then roadmap out what an AI implementation plan could look like for them.
-3. Builds. We then build out the audits we roadmap for people, working through a phased plan to ensure no one is too overloaded.
-4. Optimise. We implement self-learning feedback into the agents so they can recursively improve over time. Think of edge cases that might occur, things that go wrong. We give our clients the ability to give feedback on the agents and then have them improve themselves over time. Getting smarter the more they are used in the business.
-5. Education. We've started building out workshops for companies to help them understand what AI is, how it can be used effectively and what it can look like long term. At first we were super hesitant about this but after more and more demand, we have started doing these. They're typically 3 hours long with secondary drop-down hours for Q&A and build fixes with people.
+Productise, productise, productise. (really keen on productising if you couldn't tell).
 
-We may have in-person live workshops for teaching people how to use Claude Code, Cowork, Codex coming over the next week or so.
+Over the last few months, we've essentially been getting paid to do discovery. Clients will tell us their problems and we try and solve them. But we need the solutions we create to be systemised, so we're able to increase the time to value for each client and reduce the cognitive overload we would endure due to context switching. Accordingly, we've settled on essentially 3 core products.
 
-So, things are moving.
+1. We've launched our fully autonomous executive assistant, **AxleClaw: 1-click deployed OpenClaw**. It connects all your business apps and it can run 24/7 to do (pretty much) what your heart desires. Think daily reporting, summary of the day and week's work, Meta ads analysis, website deployment and updates. Plus you can connect it via your phone (usually via a messaging app like Telegram) and get it set up all in less than 10 minutes. It will also run an accountability check each Sunday to see how well you're performing compared to the goals you laid out. We're having beta users test it currently. Think of it as a second brain for you (really helpful for founders). I use it to just dump voice notes in and then get it to action items.
 
-2 employees (will be intro'd in the next newsletter).
+See the website here: [axleclaw.ai](https://axleclaw.ai)
 
-One thing that is quite funny is ensuring we constantly iterate on our processes. For example, onboarding for us was too manual, so we're streamlining it and ensuring that this is an agentic workflow, with the agreements, contract and timeline plus agent build dashboard all one click away for our users.
+![AxleClaw dashboard](https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=80,format=auto,onerror=redirect/uploads/asset/file/bce2d2de-b240-470b-a5b7-5f72d837de23/Screenshot_2026-06-07_at_3.54.41_pm.png)
 
-So, things are moving. It's exciting and nice to be able to ground out the core offerings that people are wanting.
+See here for a breakdown from Swanny (my co-founder): [Getting Started with AxleClaw: A Complete Walkthrough](https://www.tella.tv/video/vid_cmpnmsntf00000bjhc1rfgdbp/view)
 
-Big focus moving forward is productising everything and doing more content, sharing findings.
+2. We **audit, build and optimise**. This is our core offering. Essentially we'll go in, interview people, try to understand where inefficiencies might lie and then roadmap out what an AI implementation plan could look like for them.
 
----
+We often find people (and companies) don't know what they don't know, so the audit process is almost necessary at each step.
 
-## 2. What's New in AI (and What I'm Actually Using)
+We then build out the audits we roadmap for people, working through a phased plan to ensure any changes aren't too drastic.
 
-Most of what gets hyped in AI is theatre. Some of it is genuinely good.
+And then we optimise. We implement self-learning feedback into the agents so they can recursively improve over time. Think of edge cases that might occur, things that go wrong. We give our clients the ability to give feedback on the agents and then have them improve themselves over time. Getting smarter the more they are used in the business.
 
-I run two businesses on these tools every day, so I've got a decent read on which is which. Here's where I've landed.
+3. More recently we've been doing **education**. We've started building out workshops for companies to help them understand what AI is, how it can be used effectively and what it can look like long term. At first we were super hesitant about this but after more and more demand, we have started doing these. They're typically 3 hours long with secondary drop-down hours for Q&A and build fixes with people.
 
-### The models
+We may have **in-person live workshops** for teaching people how to use Claude Code, Cowork, Codex coming over the next week or so.
 
-Opus 4.8 is Anthropic's current flagship, and to me the upgrade is real, not a benchmark-chasing point release. The headline for me isn't the coding scores (though they jumped), it's reliability. I notice it flags when it's unsure instead of bluffing, and I'm catching far fewer quiet bugs sitting in its own code. If you've ever had a model hand you confidently broken work, you'll feel the difference straight away. They also shipped effort control, where I decide how hard it thinks on a given task, plus "dynamic workflows" in Claude Code: it plans a big job and fires off a swarm of parallel subagents to chew through it (I use this for codebase-scale migrations). Fast mode got cheaper and quicker too. I'm babysitting it far less.
+We also have **2 employees!** (will be intro'd in the next newsletter).
 
-Codex went all-in-one, and I think that's a bigger story than any single model release. OpenAI turned it from a coding tool into a general work agent. It can now drive your computer, use the everyday apps on your machine, review PRs, run its own browser to check the frontend it just built, remember your preferences, and take on repeatable jobs. They've since bolted on role-specific plugins and shareable hosted apps. To me it's no longer "the thing that writes functions." It's a desktop operator, and I'd look at it even if you don't write code.
+One thing I've found to be quite ironic is ensuring we constantly automate our manual processes.
 
-### My actual workflow
+For example, onboarding for us was too manual, so we're streamlining it and ensuring that this is an agentic workflow, with the agreements, contract and timeline plus agent build dashboard all one click away for our users.
 
-Ditch Claude Desktop. Use Claude Code in VS Code. I want to like the desktop app. I can't. It keeps breaking, and the thing that really winds me up is you can't easily see your skills. In VS Code I can watch which skills are being created and track them as they're built. That visibility alone is worth the switch to me. The desktop app feels like a demo; Claude Code feels like a workbench.
+Will be sharing these builds as we go.
 
-Projects in Claude have quietly become part of my daily setup. The bit I love most is the memory-condensing: it holds onto the context that matters and drops the noise, so I'm not re-explaining myself every session.
+## 🤖 2. What's New in AI (and What I'm Actually Using)
 
-But for 24/7, do-it-while-I-sleep work, I still lean on OpenClaw. It's there whenever I want it to go and do something for me, no hand-holding. I find Hermes solid and it breaks less often, but it's really built for single-agent work. OpenClaw's multi-agent setup is far easier for me to configure. The catch is the one everyone hits with multi-agent: the agents don't share enough context, so they drift. I haven't seen anyone crack that yet.
+Most of what gets hyped in AI is theatre (if you've seen those stupid Obsidian graphs or some Jarvis voice-activated setup you know what I'm talking about).
 
-### Hype I'm not buying
+Some of it is genuinely good. Most of it isn't :/
 
-The Obsidian "second brain" stuff. I get the appeal: a pretty graph of all your notes connected by glowing lines. It photographs well. But every one I've looked at is an elaborate way to feel productive without being productive. A visual workflow isn't the same as a working one. I've yet to see one actually save someone time. For most people it's a fidget toy.
+Here's where I've landed.
 
-Then there's the "Jarvis" builds all over your feed. Everyone's showing off their personal AI that controls their lights and reads their emails back in a calm voice. Fun demo. But I've looked at what it costs to run, and the token burn to keep one of these things live and useful is absurd. It's a great way to spend a small fortune turning your lamp off. Cool engineering, terrible economics.
+**Opus 4.8** is **Anthropic's current flagship**, and to me the upgrade is cool, but not a benchmark-chasing point release (like when ChatGPT went from 3 to 4). The headline for me isn't the coding scores (though they jumped), it's reliability. I notice it flags when it's unsure instead of bluffing, and I'm catching far fewer quiet bugs sitting in its own code. If you've ever had a model hand you confidently broken work, you'll feel the difference straight away. They also shipped effort control, where I decide how hard it thinks on a given task, plus "dynamic workflows" in Claude Code: it plans a big job and fires off a swarm of parallel subagents to chew through it. For the layman, not that important, just keep using Claude Code. The larger issue is that the app keeps breaking (see more down below). Whether or not this is because of the app or the update is unclear to me. Although I imagine the stronger model doesn't help.
 
-### For the builders
+**Codex (semi-recently)** went all-in-one, and I think that's a bigger story than any single model release. OpenAI turned it from a coding tool into a general work agent. It can now drive your computer, use the everyday apps on your machine, review PRs, run its own browser to check the frontend it just built, remember your preferences, and take on repeatable jobs. Little bit nicer than **Claude with Claude Code, Cowork and normal Claude** (most people don't actually know what the difference between Claude Cowork and Code is). Codex has also since bolted on role-specific plugins and shareable hosted apps. E.g. you can make sites that are shareable with work colleagues, which is super cool. Would recommend a look (even if you don't write code). Really nice to have a visual representation of stuff.
 
-Fastlane is the one I'd flag for indie hackers and solo founders. You point it at your website, it learns your product and your tone, and generates short-form video you swipe through Tinder-style and schedule straight to TikTok, Reels and Shorts. If you've built something good but have no time to market it, I think it's a useful distribution machine: on-brand content without standing up a content team.
+### My Actual Work OS
 
-### Bottom line
+Ditch Claude Desktop. Use Claude Code in VS Code. The desktop app just keeps breaking, and the thing that really winds me up is you can't easily see your skills (only in Claude Cowork). In VS Code I can watch which skills are being created and track them as they're built. That visibility alone is worth the switch to me. But the main thing is it breaks way less which is great.
 
-Here's what I keep coming back to. The tools I'm winning with are the ones that quietly remove babysitting: better reliability, real autonomy, less context I have to carry in my head. The ones I drop are optimised to look impressive in a screenshot. I build for the former and ignore the latter.
+![VS Code folder setup](https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=80,format=auto,onerror=redirect/uploads/asset/file/6b6a4ae6-c44a-4eeb-ba67-8e336f287f46/Screenshot_2026-06-07_at_9.57.37_pm.png)
 
----
+This is an example of what the folder setup looks like in VS Code.
 
-## 3. The NDIS Budget Is a Proxy for the Care We No Longer Have Time to Give
+The desktop app is really good for projects (purely because of the way it holds and condenses memory and context). The bit I love most is the memory-condensing: it holds onto the context that matters and drops the noise, so I'm not re-explaining myself every session.
+
+Nate Herk runs through this setup really nicely: [Turn Claude Code Into Your Executive Assistant in 27 Mins](https://www.youtube.com/watch?v=mi4hcipESKQ)
+
+But for 24/7, do-it-while-I-sleep work, I still lean on OpenClaw. It's there whenever I want it to go and do something for me, and I don't have to worry about keeping my laptop open. I find Hermes solid and it breaks less often, but it's really built for single-agent work. OpenClaw's multi-agent setup is far easier for me to configure. The catch is the one everyone hits with multi-agent: the agents don't share enough context, so they drift. Working on trying to fix this.
+
+### BS I'm seeing way too often
+
+The Obsidian "second brain" stuff. I get the appeal: a pretty graph of all your notes connected by glowing lines. It photographs well. But every one I've looked at is an elaborate way to feel productive without being productive. A visual workflow isn't the same as a working one. I've yet to see one actually save someone time. For most people it's a fidget toy. The main thing I really want to knuckle down is context. For everything. AI is only as good as the data you give it. The more context you can give it, the better.
+
+![Obsidian graph](https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=80,format=auto,onerror=redirect/uploads/asset/file/01c559b0-bcf2-464c-b0cb-c5ec014c19e0/image.png)
+
+This is the type of thing I be seeing 50 times on IG.
+
+Then there's the "Jarvis" builds all over your feed. Everyone's showing off their personal AI that controls their lights and reads their emails back in a calm voice. Fun demo. But the token burn to keep one of these things live and useful is frankly absurd. It's a great way to spend a small fortune turning your lamp off. Cool engineering, terrible economics.
+
+![Jarvis builds](https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=80,format=auto,onerror=redirect/uploads/asset/file/fbc9ed23-632f-418d-96f9-08293324cdbb/image.png)
+
+Most people need help with getting their quoting done faster rather than trying to be Iron Man lol.
+
+### 👷 For the builders: cool products and apps I'm seeing and using (not affiliated FYI)
+
+![Fastlane hits $1M ARR](https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=80,format=auto,onerror=redirect/uploads/asset/file/86f1fc78-3165-4b84-a152-2b77cd94456d/Screenshot_2026-06-07_at_4.08.24_pm.png)
+
+$1mil ARR in 2 months is crazy.
+
+Fastlane is the one I'd flag for indie hackers and solo founders. You point it at your website, it learns your product and your tone, and generates short-form video you swipe through Tinder-style and schedule straight to TikTok, Reels and Shorts. If you've built something good but have no time to market it, I think it's a useful distribution machine: on-brand content without standing up a content team. I've shouted the boys out before on my LinkedIn (I happen to be mates with the founders), but they just hit $1mil ARR in the last 2 months so gotta show them some love again - shoutout kings!
+
+## 🧐 3. Differentiated Take of the Week: The NDIS Budget Is a Proxy for the Care We No Longer Have Time to Give
+
+There has been much chatter about the NDIS, particularly recently. It has become more of a cultural conversation with the proliferation of media covering scammers who abuse the system. My take isn't so much about the rise of fraudulent behaviour, but rather what the NDIS represents in a modern-day capitalistic society.
 
 When the NDIS was started, it was a noble idea: to give the same baseline of care to people who can't care for themselves, to everyone, regardless of age, race, background or financial situation.
 
@@ -83,7 +121,13 @@ The budget has since blown out to gargantuan proportions. But my claim today isn
 
 I was recently reading Homo Deus by Yuval Harari (a fascinating read, if you haven't already).
 
-He gives an example that stopped me. A software engineer earning $250 an hour at a hi-tech start-up has a father who suffers a stroke; overnight he needs help with shopping, cooking, even showering. She could move him in and care for him herself: her income and the start-up's output would take the hit, but her father would have the company of a loving daughter. Or she could hire a carer at $25 an hour to live with him and meet his every need. As Harari frames it, the second option means "business as usual for the engineer and her start-up", and, on paper, everyone comes out ahead.
+He gives an example that has stuck with me - see screenshot from my mate Amey who I was discussing this topic with.
+
+![Homo Deus excerpt](https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=80,format=auto,onerror=redirect/uploads/asset/file/97d1d75f-28e3-4020-b148-47c17cd43003/image.png)
+
+Amey finally reading Homo Deus and then proceeding to send me screenshots of the best bits.
+
+A software engineer earning $250 an hour at a hi-tech start-up has a father who suffers a stroke; overnight he needs help with shopping, cooking, even showering. She could move him in and care for him herself: her income and the start-up's output would take the hit, but her father would have the company of a loving daughter. Or she could hire a carer at $25 an hour to live with him and meet his every need. As Harari frames it, the second option means "business as usual for the engineer and her start-up", and, on paper, everyone comes out ahead.
 
 Harari names something I'd only ever talked about with a select few: the dilemma of specialisation. We live in a world that rewards you for optimising one narrow skill, and the better you get, the more the world, and then you yourself, values that skill above almost everything else, including the care of the people closest to you.
 
@@ -95,11 +139,7 @@ I run two businesses, play basketball semi-professionally, and try to hold onto 
 
 We may tell ourselves the NDIS is proof of how much we value caring for the vulnerable, and it is. Its mere existence is generally a morally good thing (caveats for its ballooning expenditure and scammers who abuse the system). But more specifically, the budget isn't a measure of how much love we give our own; it's a measure of the gap left behind once specialisation pulled us away, the price of buying back, at scale, the care we no longer have the hours to give ourselves.
 
-It exists because the rest of us are at the keyboard.
-
-And uncomfortably, the budget line is largely the size of the absence of the care we would give.
-
-(I recognise that the system is full of rorts and scammers. But you don't build a multi-billion-dollar program around something a society has decided doesn't matter. Its very existence is proof of this notion.)
+It exists because the rest of us are at the keyboard, or specialising in a facet of life we have more leverage in, and can produce a greater benefit to society.
 
 I've lived out of home for a while now. Every time I go back, I'm reminded of the one axiom one cannot out-optimise: everyone I love is getting older, and time is finite.
 
@@ -107,9 +147,11 @@ I'm not the first one to recognise this, and I won't be the last. Nor is this so
 
 I don't have a tidy answer to this existential angst. I haven't given up my goals, and I'm not going to pretend I'm about to. But I've made my peace with this much: in a world that pays you to specialise, the time you spend on the people who will never show up on a balance sheet is the one allocation you'll never regret.
 
-On your deathbed, you'll never say you wished you spent more time at the office.
+But I figure, on my deathbed, I'll probably never have wished I spent more time at the office.
 
-Say hi to your mum.
+So say hi to your mum.
+
+Until next week amigos,
 
 Peace,
 Alex`,

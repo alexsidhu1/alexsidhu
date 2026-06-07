@@ -1,5 +1,6 @@
 "use client";
 
+/* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -41,10 +42,20 @@ const markdownComponents = {
   a: ({ href, children }: { href?: string; children?: React.ReactNode }) => (
     <a
       href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       className="text-warm-accent underline underline-offset-4 hover:opacity-80"
     >
       {children}
     </a>
+  ),
+  img: ({ src, alt }: { src?: string; alt?: string }) => (
+    <img
+      src={src}
+      alt={alt || ""}
+      loading="lazy"
+      className="rounded-lg border border-warm-border my-8 w-full"
+    />
   ),
 };
 
