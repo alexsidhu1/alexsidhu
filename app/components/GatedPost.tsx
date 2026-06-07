@@ -3,43 +3,40 @@
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import type { Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-const markdownComponents = {
-  h2: ({ children }: { children?: React.ReactNode }) => (
+const markdownComponents: Components = {
+  h2: ({ children }) => (
     <h2 className="font-serif text-2xl md:text-3xl font-medium text-warm-text leading-tight mt-16 mb-6">
       {children}
     </h2>
   ),
-  h3: ({ children }: { children?: React.ReactNode }) => (
+  h3: ({ children }) => (
     <h3 className="font-serif text-xl font-medium text-warm-text mt-10 mb-4">
       {children}
     </h3>
   ),
-  p: ({ children }: { children?: React.ReactNode }) => (
+  p: ({ children }) => (
     <p className="text-warm-muted leading-[1.9] mb-6">{children}</p>
   ),
-  ol: ({ children }: { children?: React.ReactNode }) => (
+  ol: ({ children }) => (
     <ol className="list-decimal pl-6 space-y-3 mb-6 text-warm-muted leading-[1.9] marker:text-warm-accent">
       {children}
     </ol>
   ),
-  ul: ({ children }: { children?: React.ReactNode }) => (
+  ul: ({ children }) => (
     <ul className="list-disc pl-6 space-y-3 mb-6 text-warm-muted leading-[1.9] marker:text-warm-accent">
       {children}
     </ul>
   ),
-  li: ({ children }: { children?: React.ReactNode }) => (
-    <li className="pl-1">{children}</li>
-  ),
+  li: ({ children }) => <li className="pl-1">{children}</li>,
   hr: () => <hr className="border-warm-border my-12" />,
-  strong: ({ children }: { children?: React.ReactNode }) => (
+  strong: ({ children }) => (
     <strong className="font-medium text-warm-text">{children}</strong>
   ),
-  em: ({ children }: { children?: React.ReactNode }) => (
-    <em className="italic">{children}</em>
-  ),
-  a: ({ href, children }: { href?: string; children?: React.ReactNode }) => (
+  em: ({ children }) => <em className="italic">{children}</em>,
+  a: ({ href, children }) => (
     <a
       href={href}
       target="_blank"
@@ -49,9 +46,9 @@ const markdownComponents = {
       {children}
     </a>
   ),
-  img: ({ src, alt }: { src?: string; alt?: string }) => (
+  img: ({ src, alt }) => (
     <img
-      src={src}
+      src={typeof src === "string" ? src : undefined}
       alt={alt || ""}
       loading="lazy"
       className="rounded-lg border border-warm-border my-8 w-full"
