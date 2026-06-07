@@ -32,6 +32,24 @@ function unixToDate(value: unknown): string {
     : "";
 }
 
+// beehiiv's free_web content is a full styled HTML document. Strip the
+// document chrome + all of beehiiv's styling so our own theme (the
+// `.post-html` rules in globals.css) controls the look, leaving just the
+// semantic content (headings, paragraphs, images, lists, links).
+function cleanHtml(html: string): string {
+  return html
+    .replace(/<!DOCTYPE[^>]*>/gi, "")
+    .replace(/<head[\s\S]*?<\/head>/gi, "")
+    .replace(/<style[\s\S]*?<\/style>/gi, "")
+    .replace(/<script[\s\S]*?<\/script>/gi, "")
+    .replace(/<link[^>]*>/gi, "")
+    .replace(/<meta[^>]*>/gi, "")
+    .replace(/<\/?(?:html|body)[^>]*>/gi, "")
+    .replace(/\sstyle="[^"]*"/gi, "")
+    .replace(/\sclass="[^"]*"/gi, "")
+    .trim();
+}
+
 async function fetchBeehiiv(): Promise<BeehiivPost[]> {
   const key = process.env.BEEHIIV_API_KEY;
   const pub = process.env.BEEHIIV_PUBLICATION_ID;
@@ -72,7 +90,7 @@ async function fetchBeehiiv(): Promise<BeehiivPost[]> {
             : typeof raw.preview_text === "string"
               ? raw.preview_text
               : "",
-        html,
+        html: cleanHtml(html),
       });
     }
     return out;

@@ -102,3 +102,20 @@ body {
   margin-top: 0.5rem;
   color: #78716c;
 }
+.post-html b {
+  color: #1c1917;
+  font-weight: 600;
+}
+.post-html small {
+  display: block;
+  font-size: 0.875rem;
+  color: #78716c;
+  margin: -1rem 0 1.5rem;
+}
+.post-html iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid #e7e4dc;
+  border-radius: 0.5rem;
+  margin: 2rem 0;
+}
