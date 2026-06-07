@@ -45,8 +45,7 @@ function cleanHtml(html: string): string {
     .replace(/<link[^>]*>/gi, "")
     .replace(/<meta[^>]*>/gi, "")
     .replace(/<\/?(?:html|body)[^>]*>/gi, "")
-    .replace(/\sstyle="[^"]*"/gi, "")
-    .replace(/\sclass="[^"]*"/gi, "")
+    .replace(/\s(?:style|class|id)=(["'])(?:(?!\1).)*\1/gi, "")
     .trim();
 }
 
@@ -57,9 +56,11 @@ async function fetchBeehiiv(): Promise<BeehiivPost[]> {
 
   try {
     const res = await fetch(
-      `${API_BASE}/publications/${pub}/posts?status=confirmed&limit=100&order_by=publish_date&direction=desc&expand[]=free_web_content`,
+      `${API_BASE}/publications/${pub}/posts?status=confirmed&limit=100&order_by=publish_date&direction=desc&expand[]=free_rss_content&expand[]=free_web_content`,
       {
         headers: { Authorization: `Bearer ${key}` },
+        // RSS content is the clean article body (no page header/footer/widgets);
+        // web content is the full styled page. Prefer RSS, fall back to web.
         next: { revalidate: 300 }, // refresh from beehiiv every 5 min
       }
     );
@@ -75,9 +76,9 @@ async function fetchBeehiiv(): Promise<BeehiivPost[]> {
     const out: BeehiivPost[] = [];
     for (const raw of data as Array<Record<string, unknown>>) {
       const content = raw.content as
-        | { free?: { web?: unknown } }
+        | { free?: { rss?: unknown; web?: unknown } }
         | undefined;
-      const html = content?.free?.web;
+      const html = content?.free?.rss ?? content?.free?.web;
       if (typeof raw.slug !== "string" || typeof html !== "string") continue;
 
       out.push({
