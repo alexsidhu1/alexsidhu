@@ -2,7 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import Nav from "./components/Nav";
 import SubscribeForm from "./components/SubscribeForm";
-import { posts } from "./lib/posts";
+import { getAllPostMeta } from "./lib/feed";
+
+export const revalidate = 300;
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -36,8 +38,8 @@ function formatDate(dateStr: string) {
   });
 }
 
-export default function Home() {
-  const latestPosts = posts.slice(0, 3);
+export default async function Home() {
+  const latestPosts = (await getAllPostMeta()).slice(0, 3);
 
   return (
     <>

@@ -19,3 +19,86 @@ body {
   background-color: #FAFAF7;
   color: #1C1917;
 }
+
+/* Styling for beehiiv-sourced post HTML (rendered via dangerouslySetInnerHTML) */
+.post-html {
+  color: #78716c;
+  line-height: 1.9;
+}
+.post-html h1,
+.post-html h2 {
+  font-family: var(--font-playfair), serif;
+  color: #1c1917;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 3rem 0 1.25rem;
+}
+.post-html h1 {
+  font-size: 2rem;
+}
+.post-html h2 {
+  font-size: 1.75rem;
+}
+.post-html h3,
+.post-html h4 {
+  font-family: var(--font-playfair), serif;
+  color: #1c1917;
+  font-weight: 500;
+  font-size: 1.25rem;
+  margin: 2.25rem 0 1rem;
+}
+.post-html p {
+  margin: 0 0 1.5rem;
+}
+.post-html a {
+  color: #8b6b4a;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.post-html ul,
+.post-html ol {
+  margin: 0 0 1.5rem 1.5rem;
+}
+.post-html ul {
+  list-style: disc;
+}
+.post-html ol {
+  list-style: decimal;
+}
+.post-html li {
+  margin-bottom: 0.5rem;
+}
+.post-html img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  border: 1px solid #e7e4dc;
+  margin: 2rem 0;
+}
+.post-html strong {
+  color: #1c1917;
+  font-weight: 600;
+}
+.post-html em {
+  font-style: italic;
+}
+.post-html blockquote {
+  border-left: 3px solid #e7e4dc;
+  padding-left: 1rem;
+  margin: 0 0 1.5rem;
+  font-style: italic;
+}
+.post-html hr {
+  border: none;
+  border-top: 1px solid #e7e4dc;
+  margin: 3rem 0;
+}
+.post-html figure {
+  margin: 2rem 0;
+}
+.post-html figcaption {
+  font-size: 0.875rem;
+  text-align: center;
+  margin-top: 0.5rem;
+  color: #78716c;
+}

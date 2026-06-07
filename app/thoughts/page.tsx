@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { posts } from "../lib/posts";
+import { getAllPostMeta } from "../lib/feed";
+
+export const revalidate = 300;
 
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString("en-AU", {
@@ -9,7 +11,8 @@ function formatDate(dateStr: string) {
   });
 }
 
-export default function ThoughtsPage() {
+export default async function ThoughtsPage() {
+  const posts = await getAllPostMeta();
   return (
     <div className="min-h-full flex flex-col">
       <header className="border-b border-warm-border">

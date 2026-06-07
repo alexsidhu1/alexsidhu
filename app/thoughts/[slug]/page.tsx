@@ -4,7 +4,8 @@ import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import type { Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { posts, getPost } from "../../lib/posts";
+import type { Metadata } from "next";
+import { getAllPostMeta, getFullPost } from "../../lib/feed";
 
 const markdownComponents: Components = {
   h2: ({ children }) => (
@@ -56,8 +57,22 @@ const markdownComponents: Components = {
   ),
 };
 
-export function generateStaticParams() {
-  return posts.map((p) => ({ slug: p.slug }));
+export const revalidate = 300;
+
+export async function generateStaticParams() {
+  const metas = await getAllPostMeta();
+  return metas.map((m) => ({ slug: m.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getFullPost(slug);
+  if (!post) return {};
+  return { title: post.title, description: post.excerpt };
 }
 
 function formatDate(dateStr: string) {
@@ -74,7 +89,7 @@ export default async function PostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = getPost(slug);
+  const post = await getFullPost(slug);
 
   if (!post) notFound();
 
@@ -110,12 +125,19 @@ export default async function PostPage({
 
         <hr className="border-warm-border mb-12" />
 
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          components={markdownComponents}
-        >
-          {post.content}
-        </ReactMarkdown>
+        {post.source === "beehiiv" ? (
+          <div
+            className="post-html"
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
+        ) : (
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            components={markdownComponents}
+          >
+            {post.content}
+          </ReactMarkdown>
+        )}
 
         <div className="mt-16 pt-8 border-t border-warm-border">
           <Link
