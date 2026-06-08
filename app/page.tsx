@@ -87,7 +87,7 @@ export default async function Home() {
           <div className="max-w-5xl mx-auto px-6">
             <div className="mb-14">
               <SectionLabel>About</SectionLabel>
-              <SectionHeading>Who I am</SectionHeading>
+              <SectionHeading>About Me</SectionHeading>
             </div>
             <div className="max-w-2xl space-y-5 text-warm-muted leading-[1.85]">
               <p>
