@@ -15,6 +15,12 @@ html {
   scroll-behavior: smooth;
 }
 
+/* When the custom SiteCursor is active, hide the native cursor everywhere. */
+html.has-site-cursor,
+html.has-site-cursor * {
+  cursor: none !important;
+}
+
 body {
   background-color: #FAFAF7;
   color: #1C1917;

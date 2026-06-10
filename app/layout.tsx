@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import SiteCursor from "./components/SiteCursor";
+import ClickSound from "./components/ClickSound";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -49,6 +51,8 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-cream text-warm-text antialiased">
         {children}
+        <SiteCursor />
+        <ClickSound />
       </body>
     </html>
   );
