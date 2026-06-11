@@ -125,3 +125,27 @@ body {
   border-radius: 0.5rem;
   margin: 2rem 0;
 }
+/* Clean link card for website bookmarks with no preview image */
+.post-html a.site-card {
+  display: block;
+  margin: 2rem 0;
+  padding: 1rem 1.25rem;
+  border: 1px solid #e7e4dc;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+}
+.post-html a.site-card:hover {
+  border-color: #8b6b4a;
+}
+.post-html a.site-card .site-card-title {
+  display: block;
+  color: #1c1917;
+  font-weight: 600;
+}
+.post-html a.site-card .site-card-domain {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: #8b6b4a;
+}

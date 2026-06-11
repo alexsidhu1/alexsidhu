@@ -64,6 +64,20 @@ function cleanHtml(html: string): string {
       '<iframe src="https://www.tella.tv/video/$1/embed" loading="lazy" allowfullscreen></iframe>'
     )
     .replace(/<img[^>]*src="[^"]*tella\.tv[^"]*"[^>]*>/gi, "")
+    // Website bookmark cards that have no preview image (the site exposes no
+    // og:image, e.g. Cairn) render as an ugly blob of linked text. Convert
+    // those to a clean, styled link card. Cards that already carry an <img>
+    // (the site has an og:image, e.g. Spokenly / the Guardian) are left as-is.
+    .replace(
+      /<div><a href="(https?:\/\/[^"]+)"[^>]*target="_blank"[^>]*>((?:(?!<\/a>)[\s\S])*?)<\/a><\/div>/gi,
+      (full, url, inner) => {
+        if (/<img/i.test(inner)) return full;
+        const t = inner.match(/<p>\s*([^<]+?)\s*<\/p>/i);
+        const title = t ? t[1].trim() : "Visit site";
+        const domain = url.replace(/^https?:\/\//, "").replace(/[/?#].*$/, "");
+        return `<a class="site-card" href="${url}" target="_blank" rel="noopener noreferrer"><span class="site-card-title">${title}</span><span class="site-card-domain">${domain}</span></a>`;
+      }
+    )
     // strip beehiiv's "Powered by beehiiv" footer (a divider + a link whose
     // host is beehiiv.com). Host-scoped so content links that merely carry a
     // beehiiv.com utm_source in their query are left untouched.
