@@ -49,6 +49,21 @@ function cleanHtml(html: string): string {
     // demote content h1s to h2 (the page title is the only h1)
     .replace(/<h1[^>]*>/gi, "<h2>")
     .replace(/<\/h1>/gi, "</h2>")
+    // Convert beehiiv's Tella bookmark card into a live Tella iframe embed.
+    // beehiiv bakes in a SIGNED, time-limited thumbnail URL that 403s after a
+    // few days; the /embed player always serves the current thumbnail + an
+    // inline player and never expires. Handles the card (a <div> wrapping the
+    // Tella link, optionally followed by the stale thumbnail <img>), then any
+    // bare Tella link, then drops any leftover expired Tella image.
+    .replace(
+      /<div>(?:(?!<\/div>)[\s\S])*?https?:\/\/www\.tella\.tv\/video\/(vid_[a-z0-9]+)[\s\S]*?<\/div>\s*(?:<img[^>]*tella[^>]*>\s*)?/gi,
+      '<iframe src="https://www.tella.tv/video/$1/embed" loading="lazy" allowfullscreen></iframe>'
+    )
+    .replace(
+      /<a[^>]*href="https?:\/\/www\.tella\.tv\/video\/(vid_[a-z0-9]+)[^"]*"[^>]*>[\s\S]*?<\/a>/gi,
+      '<iframe src="https://www.tella.tv/video/$1/embed" loading="lazy" allowfullscreen></iframe>'
+    )
+    .replace(/<img[^>]*src="[^"]*tella\.tv[^"]*"[^>]*>/gi, "")
     // strip beehiiv's "Powered by beehiiv" footer (a divider + a link whose
     // host is beehiiv.com). Host-scoped so content links that merely carry a
     // beehiiv.com utm_source in their query are left untouched.
