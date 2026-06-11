@@ -49,6 +49,16 @@ function cleanHtml(html: string): string {
     // demote content h1s to h2 (the page title is the only h1)
     .replace(/<h1[^>]*>/gi, "<h2>")
     .replace(/<\/h1>/gi, "</h2>")
+    // strip beehiiv's "Powered by beehiiv" footer (a divider + a link whose
+    // host is beehiiv.com). Host-scoped so content links that merely carry a
+    // beehiiv.com utm_source in their query are left untouched.
+    .replace(
+      /(?:<br\s*\/?>\s*)*(?:<hr\s*\/?>\s*)*<a[^>]*href="https?:\/\/(?:www\.)?beehiiv\.com[^"]*"[^>]*>\s*Powered by beehiiv\s*<\/a>/gi,
+      ""
+    )
+    // tidy up any empty wrapper the footer left behind
+    .replace(/<div>\s*(?:<br\s*\/?>\s*|<hr\s*\/?>\s*)*<\/div>\s*$/gi, "")
+    .replace(/<div>\s*<\/div>/gi, "")
     .trim();
 }
 
