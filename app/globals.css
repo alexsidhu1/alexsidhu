@@ -149,3 +149,18 @@ body {
   font-size: 0.875rem;
   color: #8b6b4a;
 }
+/* Image variant: preview image on top, title caption below */
+.post-html a.site-card.site-card--img {
+  padding: 0;
+  overflow: hidden;
+}
+.post-html a.site-card--img img {
+  display: block;
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+}
+.post-html a.site-card--img .site-card-title {
+  padding: 0.85rem 1.25rem;
+}

@@ -64,19 +64,23 @@ function cleanHtml(html: string): string {
       '<iframe src="https://www.tella.tv/video/$1/embed" loading="lazy" allowfullscreen></iframe>'
     )
     .replace(/<img[^>]*src="[^"]*tella\.tv[^"]*"[^>]*>/gi, "")
-    // Website bookmark cards that have no preview image (the site exposes no
-    // og:image, e.g. Cairn) render as an ugly blob of linked text. Convert
-    // those to a clean, styled link card. Cards that already carry an <img>
-    // (the site has an og:image, e.g. Spokenly / the Guardian) are left as-is.
+    // beehiiv website bookmark cards render as a verbose stack of links
+    // (title + full description + source, plus the image). Collapse every
+    // card to a clean, styled card: keep the preview image (if any) and just
+    // the title. Cards with a real image (Spokenly, the Guardian) become
+    // image + title; cards with no image (Cairn — beehiiv leaves an empty
+    // <img src=""/> placeholder, which a non-empty src check ignores) become
+    // a title + domain link.
     .replace(
       /<div><a href="(https?:\/\/[^"]+)"[^>]*target="_blank"[^>]*>((?:(?!<\/a>)[\s\S])*?)<\/a><\/div>/gi,
       (full, url, inner) => {
-        // Leave cards that already have a real preview image. beehiiv inserts
-        // an empty <img src=""/> placeholder when the site has no og:image
-        // (e.g. Cairn) — that doesn't count, so require a non-empty src.
-        if (/<img[^>]+src="[^"]+"/i.test(inner)) return full;
         const t = inner.match(/<p>\s*([^<]+?)\s*<\/p>/i);
         const title = t ? t[1].trim() : "Visit site";
+        const imgMatch = inner.match(/<img[^>]+src="([^"]+)"[^>]*>/i);
+        const img = imgMatch ? imgMatch[1] : "";
+        if (img) {
+          return `<a class="site-card site-card--img" href="${url}" target="_blank" rel="noopener noreferrer"><img src="${img}" alt="" loading="lazy"><span class="site-card-title">${title}</span></a>`;
+        }
         const domain = url.replace(/^https?:\/\//, "").replace(/[/?#].*$/, "");
         return `<a class="site-card" href="${url}" target="_blank" rel="noopener noreferrer"><span class="site-card-title">${title}</span><span class="site-card-domain">${domain}</span></a>`;
       }
