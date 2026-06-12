@@ -71,7 +71,10 @@ function cleanHtml(html: string): string {
     .replace(
       /<div><a href="(https?:\/\/[^"]+)"[^>]*target="_blank"[^>]*>((?:(?!<\/a>)[\s\S])*?)<\/a><\/div>/gi,
       (full, url, inner) => {
-        if (/<img/i.test(inner)) return full;
+        // Leave cards that already have a real preview image. beehiiv inserts
+        // an empty <img src=""/> placeholder when the site has no og:image
+        // (e.g. Cairn) — that doesn't count, so require a non-empty src.
+        if (/<img[^>]+src="[^"]+"/i.test(inner)) return full;
         const t = inner.match(/<p>\s*([^<]+?)\s*<\/p>/i);
         const title = t ? t[1].trim() : "Visit site";
         const domain = url.replace(/^https?:\/\//, "").replace(/[/?#].*$/, "");
