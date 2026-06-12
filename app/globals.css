@@ -102,6 +102,9 @@ body {
 .post-html figure {
   margin: 2rem 0;
 }
+.post-html figure img {
+  margin: 0;
+}
 .post-html figcaption {
   font-size: 0.875rem;
   text-align: center;

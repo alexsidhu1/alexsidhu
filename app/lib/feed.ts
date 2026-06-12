@@ -6,6 +6,12 @@ import { posts as localPosts, type Post } from "./posts";
 
 const API_BASE = "https://api.beehiiv.com/v2";
 
+// Manually pin the displayed date for specific beehiiv posts (beehiiv's
+// publish_date isn't always the date we want shown on the site).
+const DATE_OVERRIDES: Record<string, string> = {
+  "the-inaugural-newsletter": "2026-06-12",
+};
+
 export type PostMeta = {
   slug: string;
   title: string;
@@ -49,6 +55,19 @@ function cleanHtml(html: string): string {
     // demote content h1s to h2 (the page title is the only h1)
     .replace(/<h1[^>]*>/gi, "<h2>")
     .replace(/<\/h1>/gi, "</h2>")
+    // beehiiv renders image captions as <div><span><p>caption</p></span></div>
+    // right after the <img>, which our theme would show as normal body text.
+    // Wrap image + caption in a <figure>/<figcaption> so it's styled as a
+    // caption (small, centered, muted — see globals.css).
+    .replace(
+      /(<img[^>]*>)\s*<div>\s*<span><p>([\s\S]*?)<\/p><\/span>\s*<\/div>/gi,
+      "<figure>$1<figcaption>$2</figcaption></figure>"
+    )
+    // any remaining caption nodes not directly after an image
+    .replace(
+      /<div>\s*<span><p>([\s\S]*?)<\/p><\/span>\s*<\/div>/gi,
+      "<figcaption>$1</figcaption>"
+    )
     // Convert beehiiv's Tella bookmark card into a live Tella iframe embed.
     // beehiiv bakes in a SIGNED, time-limited thumbnail URL that 403s after a
     // few days; the /embed player always serves the current thumbnail + an
@@ -133,7 +152,9 @@ async function fetchBeehiiv(): Promise<BeehiivPost[]> {
       out.push({
         slug: raw.slug,
         title: typeof raw.title === "string" ? raw.title : "Untitled",
-        date: unixToDate(raw.publish_date) || unixToDate(raw.created),
+        date:
+          DATE_OVERRIDES[raw.slug] ??
+          (unixToDate(raw.publish_date) || unixToDate(raw.created)),
         excerpt:
           typeof raw.subtitle === "string"
             ? raw.subtitle
