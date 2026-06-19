@@ -52,6 +52,16 @@ function cleanHtml(html: string): string {
     .replace(/<meta[^>]*>/gi, "")
     .replace(/<\/?(?:html|body)[^>]*>/gi, "")
     .replace(/\s(?:style|class|id)=(["'])(?:(?!\1).)*\1/gi, "")
+    // strip the recurring newsletter onboarding preamble (the "Hey there …
+    // you're receiving this because … let's get into it" greeting that makes
+    // sense in an email but not on the site). Scoped to that exact block:
+    // only fires when a paragraph opens with "Hey there" and the block closes
+    // with "let's get into it", so editions without it are left untouched.
+    // Also drops the divider that separated the preamble from the body.
+    .replace(
+      /<p[^>]*>\s*Hey there[\s\S]*?let[’']s get into it[^<]*<\/p>\s*(?:<hr[^>]*\/?>\s*)?/i,
+      ""
+    )
     // demote content h1s to h2 (the page title is the only h1)
     .replace(/<h1[^>]*>/gi, "<h2>")
     .replace(/<\/h1>/gi, "</h2>")
