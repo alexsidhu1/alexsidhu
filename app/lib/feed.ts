@@ -174,10 +174,42 @@ async function fetchBeehiiv(): Promise<BeehiivPost[]> {
         html: cleanHtml(html),
       });
     }
-    return out;
+    return dedupeByTitle(out);
   } catch {
     return [];
   }
+}
+
+// beehiiv can end up holding the same edition twice (e.g. a post duplicated or
+// published twice). beehiiv keeps slugs unique by appending a short hash, so the
+// dupe arrives as "the-inaugural-newsletter" + "the-inaugural-newsletter-9edf".
+// Collapse posts that share a title: keep the canonical one (the slug without a
+// trailing collision suffix; ties broken by the earliest edition).
+const SLUG_COLLISION_SUFFIX = /-[0-9a-f]{4,}$/;
+
+function normalizeTitle(title: string): string {
+  return title.trim().replace(/\s+/g, " ").toLowerCase();
+}
+
+function dedupeByTitle(posts: BeehiivPost[]): BeehiivPost[] {
+  const byTitle = new Map<string, BeehiivPost>();
+  for (const post of posts) {
+    const key = normalizeTitle(post.title);
+    const existing = byTitle.get(key);
+    if (!existing) {
+      byTitle.set(key, post);
+      continue;
+    }
+    const existingIsCanonical = !SLUG_COLLISION_SUFFIX.test(existing.slug);
+    const postIsCanonical = !SLUG_COLLISION_SUFFIX.test(post.slug);
+    // prefer the un-suffixed slug; if both (or neither) qualify, keep the older.
+    if (postIsCanonical && !existingIsCanonical) {
+      byTitle.set(key, post);
+    } else if (postIsCanonical === existingIsCanonical && post.date < existing.date) {
+      byTitle.set(key, post);
+    }
+  }
+  return [...byTitle.values()];
 }
 
 function byDateDesc(a: PostMeta, b: PostMeta): number {
