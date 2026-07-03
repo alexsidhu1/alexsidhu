@@ -152,9 +152,7 @@ Built by Alex Sidhu, Whitehorse AI.`,
       "Why a bug hits a channel and gets triaged, argued over, and solved",
       "How AxleClaw acts on its own across WhatsApp, iMessage, Slack and more",
     ],
-    content: `## The video you probably came from
-
-A customer flagged a bug, and it landed in a Slack channel. Three AI agents were already sitting there, and they went at it. One traced where the error came from, one argued about the fix, and one checked it wouldn't break anything else. A few minutes later there was a working fix and a reply drafted to the customer. I approved it and moved on.
+    content: `A customer flagged a bug, and it landed in a Slack channel. Three AI agents were already sitting there, and they went at it. One traced where the error came from, one argued about the fix, and one checked it wouldn't break anything else. A few minutes later there was a working fix and a reply drafted to the customer. I approved it and moved on.
 
 That wasn't a stunt, and it's a setup you can build yourself. Honestly, the trick is just pulling the agents into where the work already happens, which for most teams is Slack, and then letting each one do what it's best at.
 
