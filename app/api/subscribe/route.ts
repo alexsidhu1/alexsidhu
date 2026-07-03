@@ -15,8 +15,11 @@ export async function POST(req: Request) {
   }
 
   let email: unknown;
+  let utmSource: unknown;
+  let referringSite: unknown;
   try {
-    ({ email } = await req.json());
+    ({ email, utm_source: utmSource, referring_site: referringSite } =
+      await req.json());
   } catch {
     return NextResponse.json({ error: "Invalid request." }, { status: 400 });
   }
@@ -31,6 +34,17 @@ export async function POST(req: Request) {
     );
   }
 
+  // Optional source tags let us see where a signup came from (e.g. the
+  // Instagram second-brain funnel) in beehiiv. Default to the site.
+  const utm_source =
+    typeof utmSource === "string" && utmSource.trim()
+      ? utmSource.trim()
+      : "alexsidhu.com";
+  const referring_site =
+    typeof referringSite === "string" && referringSite.trim()
+      ? referringSite.trim()
+      : "alexsidhu.com";
+
   try {
     const res = await fetch(
       `https://api.beehiiv.com/v2/publications/${publicationId}/subscriptions`,
@@ -44,8 +58,8 @@ export async function POST(req: Request) {
           email: email.trim(),
           reactivate_existing: true,
           send_welcome_email: true,
-          utm_source: "alexsidhu.com",
-          referring_site: "alexsidhu.com",
+          utm_source,
+          referring_site,
         }),
       }
     );
