@@ -145,85 +145,78 @@ Built by Alex Sidhu, Whitehorse AI.`,
     title: "The AI Ops Squad",
     date: "2026-07-03",
     excerpt:
-      "The three AI agents I run inside Slack, the same three you saw fight over a customer bug and fix it. What each one is, and how to set them up. Two you can have running this week.",
+      "The three AI agents I run inside Slack, the same three you saw fight over a customer bug and fix it. What each one is, and how to set them up. All three you can set up yourself.",
     highlights: [
       "The three agents that live in my Slack, and what each is best at",
-      "Set up Viktor and Claude yourself, step by step",
+      "Set up all three yourself, step by step",
       "Why a bug hits a channel and gets triaged, argued over, and solved",
-      "Where the rented agents stop, and what a built-for-you one does",
+      "How AxleClaw acts on its own across WhatsApp, iMessage, Slack and more",
     ],
     content: `## The video you probably came from
 
-A customer flagged a bug. It landed in a Slack channel. Three AI agents were already sitting in that channel, and they went at it: one traced where the error came from, one argued about the fix, one checked it would not break anything else. A few minutes later there was a working fix and a reply drafted to the customer. I approved it and moved on.
+A customer flagged a bug, and it landed in a Slack channel. Three AI agents were already sitting there, and they went at it. One traced where the error came from, one argued about the fix, and one checked it wouldn't break anything else. A few minutes later there was a working fix and a reply drafted to the customer. I approved it and moved on.
 
-That was not a stunt. That is a normal setup you can build. The trick is putting the agents where the work already happens, which for most teams is Slack, and letting them each do what they are best at.
+That wasn't a stunt, and it's a setup you can build yourself. Honestly, the trick is just pulling the agents into where the work already happens, which for most teams is Slack, and then letting each one do what it's best at.
 
-Here are the three, what each one actually is, and how to set them up. Two of them you can have running this week. The third is the one we build.
+So here are the three. What each one actually is, and how to set it up. All three you can have running this week.
 
 ## Why Slack
 
-Most people run one AI in a browser tab and copy-paste between it and their real tools all day. The agents in this guide live inside Slack instead. A message lands, you @mention the right one, it reads the thread, does the work, and posts the result back where everyone can see it. No new app to check. No context lost. The channel becomes the workbench.
+Most people run one AI in a browser tab and copy-paste between it and their real tools all day long. The agents in this guide live inside Slack instead. A message lands, you @mention the right one, and it reads the thread, does the work, and posts the result back where everyone can see it. There's no new app to check and nothing gets lost between tabs. The channel becomes the workbench.
 
 ## Agent 1: Viktor, the AI employee
 
-**What it is.** Viktor ([viktor.com](https://viktor.com)) is an AI employee that lives in Slack. Not a chatbot that answers questions, an operator that does tasks. You give it a job in plain English and it comes back with the finished thing: a report, a reconciled invoice list, a drafted follow-up, a small dashboard. It connects to your real tools (Stripe, HubSpot, Google, Meta Ads, GitHub and a few thousand others) and can run any task on a schedule.
+**What it is.** Viktor ([viktor.com](https://viktor.com)) is an AI employee that lives in Slack. It's not a chatbot that answers questions, it's an operator that does tasks. You give it a job in plain English and it comes back with the finished thing: a report, a reconciled invoice list, a drafted follow-up, a small dashboard. It connects to your real tools (Stripe, HubSpot, Google, Meta Ads, GitHub and a few thousand others) and can run any task on a schedule.
 
-**What it is good at.** The unglamorous operational work. Weekly revenue digests posted to a channel. Reconciling invoices against Stripe. Auditing ad spend and pausing the losers. Drafting CRM follow-ups. Triaging a support or bug queue. If it is a repeatable ops task that touches a few tools, Viktor is the workhorse.
+**What it's good at.** The unglamorous operational work. Weekly revenue digests posted to a channel. Reconciling invoices against Stripe. Auditing ad spend and pausing the losers. Drafting CRM follow-ups. Triaging a support or bug queue. If it's a repeatable ops task that touches a few tools, Viktor is the workhorse.
 
 **How to set it up (about 10 minutes):**
 
-1. Sign up at [app.viktor.com/signup](https://app.viktor.com/signup). No credit card, you start with about $100 in free credits.
-2. Install Viktor to your Slack workspace from the Slack app directory. Takes a couple of minutes.
-3. Connect your tools. Most are one-click sign-in, a few need an API key. Viktor handles the connection, no Zapier in the middle.
+1. Sign up at [app.viktor.com/signup](https://app.viktor.com/signup). No credit card, and you start with about $100 in free credits.
+2. Install Viktor to your Slack workspace from the Slack app directory. It takes a couple of minutes.
+3. Connect your tools. Most are one-click sign-in, a few need an API key. Viktor handles the connection, so there's no Zapier in the middle.
 4. Invite Viktor to a channel and give it a task: \`@Viktor pull last week's Stripe revenue and post a summary here every Monday at 9am.\`
 
-**Worth knowing.** Pricing after the trial is $50/month for the Team plan (20,000 credits, enough for roughly 10 to 15 complex jobs a month). Credits burn per task, and daily automations burn faster than weekly ones, so start weekly and turn up frequency once you see the value. It is a young product, so treat the first week as a trial with real work, not a leap of faith.
+**Worth knowing.** Pricing after the trial is $50/month for the Team plan (20,000 credits, enough for roughly 10 to 15 complex jobs a month). Credits burn per task, and daily automations burn faster than weekly ones, so start weekly and turn up the frequency once you see the value. It's a young product, so treat the first week as a trial with real work rather than a leap of faith.
 
 ## Agent 2: Claude Tag, the one that reasons through hard problems
 
 **What it is.** Claude Tag is Anthropic's own agent that lives in your Slack channels. You @mention \`@Claude\` and it takes on the task in the open: it posts a live checklist in the thread and works through it where the whole channel can watch. This is the one that shines on the genuinely hard problems, the bug in the video being the obvious example. It can investigate a bug, open a pull request, turn a messy decision thread into a clean doc, or run a data query, and it builds context on the channels it sits in over time.
 
-**The catch: it is Team or Enterprise only.** The full channel agent (Claude Tag) needs a Claude **Team or Enterprise** plan and is in public beta right now. If you are on a personal Claude plan you can still DM Claude inside Slack, but the in-channel agent that does real work is the paid-team tier. Worth it if your team already runs on Slack.
+**The catch: it's Team or Enterprise only.** The full channel agent (Claude Tag) needs a Claude **Team or Enterprise** plan and is in public beta right now. If you're on a personal Claude plan you can still DM Claude inside Slack, but the in-channel agent that does real work is the paid-team tier. It's worth it if your team already runs on Slack.
 
 **How to set it up (an Owner does this once):**
 
 1. Install the Claude app from the [Slack Marketplace](https://slack.com/marketplace/A08SF47R6P4). Any admin can add it, but the next step needs an Owner.
 2. A Slack/Claude **Owner** (not just an Admin) goes to \`claude.ai/admin-settings/claude-tag\` and provisions Claude Tag. Claude gets its own identity in the workspace, separate from any one person's account.
 3. Connect the tools and repositories Claude should reach, and choose which channels it operates in. Access is set per channel, so you decide exactly what it can touch where.
-4. That is it. From then on anyone in those channels just types \`@Claude investigate this error and open a fix\` and watches it work.
+4. That's it. From then on anyone in those channels just types \`@Claude investigate this error and open a fix\` and watches it work.
 
-**Worth knowing.** Channel work is billed on usage against an org balance the Owner funds (not per-seat), with spend limits you set. When you @mention it in a channel it only sees the recent messages, so give it the context in your message or forward the thread. Ask \`@Claude what can you access from this channel?\` to see what is wired up. (One housekeeping note: Anthropic is retiring the older "Claude in Slack" name and folding everything into Claude Tag in August 2026, so Claude Tag is the thing to set up.)
+**Worth knowing.** Channel work is billed on usage against an org balance the Owner funds (not per-seat), with spend limits you set. When you @mention it in a channel it only sees the recent messages, so give it the context in your message or forward the thread. Ask \`@Claude what can you access from this channel?\` to see what's wired up. (One housekeeping note: Anthropic is retiring the older "Claude in Slack" name and folding everything into Claude Tag in August 2026, so Claude Tag is the thing to set up.)
 
-## Agent 3: AxleClaw, the one built for you
+## Agent 3: AxleClaw, the one that goes everywhere
 
-**What it is.** AxleClaw is our productized founder operating system. Same idea as the other two, an agent that runs your operation from inside the tools you already use, but built and tuned for you instead of signed up for. It is trained on how your business actually runs and wired into your stack, so it does not just answer, it operates.
+**What it is.** AxleClaw ([axleclaw.ai](https://axleclaw.ai)) is our own founder operating system. Like the other two it runs your work from inside the tools you already use, but it's built to act more on its own and to live wherever you do, not just in Slack.
 
-**Why it is different from the first two.** Viktor and Claude Tag are brilliant and you should use them. But they are rented and general. They know what you tell them in the moment. AxleClaw is owned and specific: it knows your workflows, your clients, your way of doing things, and it does the same job the same way every time without you re-explaining it. That is the difference between hiring a sharp temp and building a team member who has been there a year.
+**Why it's different from the first two.** Two things set it apart. First, it's built to be more autonomous. It doesn't just draft and wait, it takes more of the action end to end, so more of the loop closes without you in it. Second, it isn't stuck in one place. The same agent drops into WhatsApp, iMessage, Slack, and more, so it reaches you and acts wherever the work is actually happening. And it plugs into far more of your stack, so there's less it can't touch. That reach is the biggest difference between AxleClaw and a Slack-only assistant.
 
-**How to "set it up."** You do not, we do. That is the point. If your operation has outgrown copy-pasting between tabs and you want the built-for-you version, that is a conversation, not a signup. It starts with an audit of where your time actually goes.
+**How to set it up.** Sign up at [axleclaw.ai](https://axleclaw.ai), connect the platforms and tools you want it in, and point it at the work. That's it.
 
 ## How the three work together
 
-Back to the bug. Here is who did what, and why three beats one:
+Back to the bug. Here's who did what, and why three beats one.
 
-- The customer message hits the channel. **Viktor** triages it: pulls the customer record, checks recent tickets, flags severity.
-- **Claude Tag** takes the hard part: traces the error, reasons through the fix, opens a pull request with the change.
-- They disagree on the fix, which is the good part. Seeing two agents check each other catches the mistake a single one would have shipped.
-- Once the fix is agreed, the customer reply gets drafted, and a human (you) approves before anything sends.
+- The customer message hits the channel, and **Viktor** triages it: it pulls the customer record, checks recent tickets, and flags how urgent this is.
+- **Claude Tag** takes the hard part. It traces the error, reasons through the fix, and opens a pull request with the change.
+- They disagree on the fix, which is the good part, because two agents checking each other catches the mistake a single one would have shipped.
+- **AxleClaw** carries it out of the channel. It pings the on-call engineer on WhatsApp and updates the customer's record, so the loop closes wherever people actually are, not just in Slack.
+- The customer reply gets drafted, and a human (you) approves before anything goes out.
 
-No agent auto-sends. Every one of them drafts and waits for a person. The squad does the work, you keep the judgment.
-
-## Where the DIY version stops
-
-I will be honest about the ceiling, same as I am with everyone. Viktor and Claude Tag will take you a long way, and for a lot of founders they are enough. Set them up this week and you will feel it.
-
-The wall shows up when the agents need to know your business the way a good employee does: your processes, your edge cases, your history, kept current without you managing it by hand. Rented general agents do not hold that. A built-for-you system does. That is the line between an ops squad you assemble and a company brain we build, and hitting that wall is a good sign. It means the system is working and you have outgrown the starter version.
-
-If you are there, reply to the email that sent you this guide, or book an audit. We will map where your time goes and show you what the built version does that the DIY one cannot.
+Nothing important auto-sends. The squad does the work, and you keep the judgment.
 
 ## Start here
 
-Do not overthink it. Sign up for Viktor's free trial today and give it one real task. If your team is on a Claude Team plan, have your Owner switch on Claude Tag and point it at one channel. You will know inside an afternoon whether this changes how you work. Most people, it does.
+Don't overthink it. Sign up for Viktor's free trial today and give it one real task. If your team is on a Claude Team plan, have your Owner switch on Claude Tag and point it at one channel. And grab AxleClaw at [axleclaw.ai](https://axleclaw.ai) if you want an agent that acts on its own across every app you use, not just Slack. You'll know inside an afternoon whether this changes how you work. For most people, it does.
 
 Built by Alex Sidhu, Whitehorse AI.`,
   },
