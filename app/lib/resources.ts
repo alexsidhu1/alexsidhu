@@ -218,6 +218,170 @@ Don't overthink it. Sign up for Viktor's free trial today and give it one real t
 
 Built by Alex Sidhu, Whitehorse AI.`,
   },
+  {
+    slug: "the-ai-accountability-check-in",
+    title: "The AI Accountability Check-In",
+    date: "2026-07-07",
+    excerpt:
+      "How to build a Claude Code routine that pulls your calendar and Slack DMs you a midday check-in every weekday, automatically, even when your laptop is closed. About ten minutes to set up.",
+    highlights: [
+      "What a cloud routine is and how it runs without your computer",
+      "Connect Google Calendar and Slack in under five minutes",
+      "The exact prompt I use, ready to copy and adapt",
+      "Where DIY stops and a built-for-you workflow system begins",
+    ],
+    content: `At noon today my phone buzzed with a Slack message from Claude. It listed my three afternoon meetings and asked what my top three priorities were. My laptop was closed. The agent had already pulled my calendar, found the events, and sent the DM on its own. I built that in about ten minutes.
+
+That's a cloud routine in Claude Code. Here's how to build yours.
+
+## What a cloud routine actually is
+
+Claude Code has a feature called Routines. You write a prompt, connect your tools, set a schedule, and a Claude agent runs that prompt in Anthropic's cloud on repeat. Every weekday at noon in my case, but you could do 9am, daily, weekly, whatever makes sense.
+
+The important part: it runs on Anthropic's servers, not your machine. Your computer can be off. The routine fires anyway.
+
+## What you need
+
+- A paid Claude plan (Pro, Max, Team, or Enterprise). Routines are not on the free tier.
+- The tools you want to use, connected at [claude.ai/customize/connectors](https://claude.ai/customize/connectors). For a calendar check-in you need Google Calendar and Slack.
+
+## How to build it (about 10 minutes)
+
+### Step 1: Connect your tools
+
+Go to [claude.ai/customize/connectors](https://claude.ai/customize/connectors) and connect Google Calendar and Slack if they aren't already there. One-time setup. Once connected, those tools are available to any routine you create.
+
+### Step 2: Write the prompt
+
+This is the most important step. The cloud agent runs with zero context, so the prompt has to be completely self-contained. It needs to know who it is, what it's doing, and exactly how to do it.
+
+Here's the prompt I use. Copy it and swap in your name, timezone, and Slack handle:
+
+> You are a scheduled accountability agent. Your job is to send [YOUR NAME] a midday Slack DM that includes their remaining calendar events for today.
+>
+> Steps:
+> 1. Use Google Calendar to list today's events. Filter to only events starting at or after 12pm [YOUR TIMEZONE].
+> 2. Use Slack to find [YOUR SLACK NAME]'s user ID and send them a direct message.
+> 3. Format the message like this:
+>
+> Hey [NAME] - midday check-in.
+>
+> Your afternoon: [list each remaining event as time - title. If none, write "No meetings this afternoon."]
+>
+> What are your top 3 priorities right now, and are you on track?
+>
+> 4. Confirm the message was sent and stop.
+
+The specificity matters. Vague prompts produce inconsistent agents. Tell it what to do, in what order, and what the output should look like.
+
+### Step 3: Create the routine
+
+Three ways to do this, all writing to the same cloud account:
+
+**Web UI (easiest).** Go to [claude.ai/code/routines](https://claude.ai/code/routines) and click New routine. Name it, paste your prompt, attach Google Calendar and Slack as connectors, set the schedule, and save.
+
+**Claude Code (any session).** Type \`/schedule\` in chat. It walks you through the same fields interactively, in plain English.
+
+**Desktop app.** Click Routines in the sidebar, then New routine, then choose Remote. (Local would run it on your machine, not the cloud.)
+
+### Step 4: Set the schedule
+
+Two things to know before you pick a time:
+
+Schedules run in UTC. If you're in Sydney, noon is 2am UTC during AEST. The web and desktop interfaces convert the time for you. If you're using the CLI you'll need to convert it manually.
+
+The minimum interval is one hour. Sub-hourly routines are rejected.
+
+Pick your frequency, hit save. The routine is live.
+
+## What it looks like when it runs
+
+Every weekday at noon, Claude spins up a fresh cloud session. It calls the Calendar API to read your afternoon, searches Slack for your user, and sends the DM. You get the message whether you're at your desk or not.
+
+You can trigger it manually from [claude.ai/code/routines](https://claude.ai/code/routines) any time to test it before the scheduled run fires.
+
+## What else you can build on this
+
+A noon check-in is the simplest version of this pattern. Once you see it working, the same setup generalises:
+
+- A 9am routine that reads your inbox and surfaces the three emails that need a reply today
+- A weekly routine that pulls your ad spend and flags the campaigns that are underperforming
+- A Friday routine that scans your CRM for leads that have gone quiet and drafts follow-ups
+
+The ceiling on the DIY version is prompt quality. Writing a routine that reliably handles complex multi-tool work, stays accurate across edge cases, and actually gets used requires iteration. Most people build the first one and stall on the second or third.
+
+That's where Whitehorse comes in. We build these workflows end to end, as part of a full AI operating system for your business. If you want a done-for-you version of what you just read, an audit is where that starts.
+
+## Start here
+
+Build the noon check-in. It takes ten minutes, and the return is immediate. Once it's running every weekday you'll have a real sense of what routines can do, and you'll start seeing the other places in your work where they belong.
+
+Built by Alex Sidhu, Whitehorse AI.`,
+  },
+  {
+    slug: "emails-that-sound-like-you",
+    title: "Emails That Sound Like You",
+    date: "2026-07-07",
+    excerpt:
+      "One file, five minutes. Set your tone, your banned words, and your sentence rhythm in Claude Code, and every email it drafts from then on sounds like you wrote it.",
+    highlights: [
+      "The four sections every communication style file needs",
+      "The exact banned phrases that make AI emails obvious — and how to kill them",
+      "How to wire it into Claude Code so it reads your rules automatically",
+      "Where one-person voice rules stop and a company-wide AI standard begins",
+    ],
+    content: `Someone replied to an email last week saying it was one of the clearest I'd sent. I'd written maybe ten words of it. Claude wrote the rest. The thing that made it sound like me wasn't prompting skill or a special model. It was a rules file I set up once and haven't thought about since.
+
+Here's what it is and how to build yours.
+
+## What a communication style file actually does
+
+When Claude drafts something, it defaults to generic professional language. Clear, technically correct, nobody's voice. A \`communication-style.md\` file is a set of rules Claude reads before writing anything: your tone, your banned words, your sentence rhythm. Once it's in place, every draft starts from your voice instead of from scratch.
+
+## What to put in it
+
+The file is plain English. No code. Four sections are worth having:
+
+**Tone.** How you write in different contexts. "Internal messages: casual and direct. Client emails: professional but plain-spoken, never corporate." The more specific, the better.
+
+**What to avoid.** This is the most important section. List the words and patterns you hate seeing in your own writing. Em dashes. Emojis. Phrases like "circle back", "touch base", "moving forward". The AI-tell lines that make it obvious a machine wrote it: "I hope this finds you well", "please don't hesitate to reach out", "as per our conversation". Kill them all by name.
+
+**Sentence rhythm.** How your sentences should feel. Contractions? Short sentences or longer ones? How much variety? "Contractions are good. Vary sentence length. Avoid strings of three-word fragments back to back."
+
+**Default.** What's your baseline? "When in doubt: shorter, sharper, more concrete. Strip filler. Trust the reader."
+
+## How to set it up (5 minutes)
+
+1. Open your Claude Code project folder. If you haven't set one up yet, the free template at [github.com/alexsidhu1/execassistant-template](https://github.com/alexsidhu1/execassistant-template) gives you the full structure including this file.
+2. Create the \`.claude/rules/\` folder inside your project if it doesn't exist.
+3. Create a new file: \`communication-style.md\`.
+4. Fill it in. Copy the structure above and replace every section with your actual rules. Don't be vague: "professional" tells Claude nothing. "No em dashes, no emojis, never open with I hope this email finds you well" tells it exactly what to cut.
+5. Add one line near the top of your \`CLAUDE.md\`: \`@.claude/rules/communication-style.md\`. This tells Claude to read your rules at the start of every session. If you're using the execassistant template, this line is already wired in.
+
+That's it. From now on, every time you ask Claude to draft a reply, it reads your rules before it writes a word.
+
+## Using it to draft an email
+
+The prompt is simple. Paste the email you're replying to and say:
+
+> Draft a reply. Keep it short. [Add any specific points you want to hit.]
+
+Claude reads your style rules first, so it knows not to use em dashes, not to open with "I hope this finds you well," and to match your rhythm. Review the draft, tweak what needs tweaking, send.
+
+You'll make fewer edits over time as the rules get sharper. When you see something wrong in a draft, add it to the file. "Never say 'as discussed'." "Don't use bullet points in client emails." Each addition compounds.
+
+## The honest ceiling
+
+This setup is powerful for one person. Your voice, your rules, your project. The limitation: it lives in a folder on your computer. Everyone on your team has their own setup, or no setup at all. Company emails still sound different depending on who sent them.
+
+The next level is a team-wide voice standard baked into a shared system, so every person drafting a client email starts from the same baseline. Same tone, same banned phrases, same rules enforced automatically. That's what we build into the AI operating systems at Whitehorse. If you want that for your business, an audit is where it starts.
+
+## Start here
+
+Open a blank file and write your ten most-hated phrases. The words that make you wince when you see them in an email draft. Get those in the file today, and the next email Claude writes for you won't have a single one of them.
+
+Built by Alex Sidhu, Whitehorse AI.`,
+  },
 ];
 
 export function getResource(slug: string): Resource | undefined {

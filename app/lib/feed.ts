@@ -51,6 +51,18 @@ function cleanHtml(html: string): string {
     .replace(/<link[^>]*>/gi, "")
     .replace(/<meta[^>]*>/gi, "")
     .replace(/<\/?(?:html|body)[^>]*>/gi, "")
+    // Preserve text highlights. beehiiv encodes a highlight as an inline
+    // background colour on a <span> (or <mark>). The generic style strip on the
+    // next line would drop the colour, so capture it FIRST and re-emit as a
+    // <mark> carrying the colour in a data-* attribute (which survives the
+    // strip). A late pass below turns that back into an inline custom property
+    // the theme reads (see `.post-html mark` in globals.css), so the highlight
+    // shows on the site in the same colour it has in the newsletter.
+    .replace(
+      /<(span|mark)\b[^>]*?background(?:-color)?\s*:\s*([^;"']+)[^>]*>([\s\S]*?)<\/\1>/gi,
+      (_m, _tag, color: string, inner: string) =>
+        `<mark data-hl="${color.trim()}">${inner}</mark>`
+    )
     .replace(/\s(?:style|class|id)=(["'])(?:(?!\1).)*\1/gi, "")
     // strip the recurring newsletter onboarding preamble (the "Hey there …
     // you're receiving this because … let's get into it" greeting that makes
@@ -124,6 +136,12 @@ function cleanHtml(html: string): string {
     // tidy up any empty wrapper the footer left behind
     .replace(/<div>\s*(?:<br\s*\/?>\s*|<hr\s*\/?>\s*)*<\/div>\s*$/gi, "")
     .replace(/<div>\s*<\/div>/gi, "")
+    // Restore preserved highlight colours: turn the surviving data-hl attribute
+    // into an inline custom property the theme reads for the background colour.
+    .replace(
+      /<mark\s+data-hl="([^"]*)"\s*>/gi,
+      (_m, color: string) => `<mark style="--hl:${color}">`
+    )
     .trim();
 }
 

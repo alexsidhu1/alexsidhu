@@ -81,6 +81,18 @@ body {
   border: 1px solid #e7e4dc;
   margin: 2rem 0;
 }
+/* Newsletter highlights. beehiiv encodes a highlight as an inline background
+   colour; feed.ts preserves it as the --hl custom property so it renders here
+   in the same colour as the newsletter. Falls back to the warm brown accent
+   if a highlight ever arrives without a captured colour. */
+.post-html mark {
+  background-color: var(--hl, rgba(139, 107, 74, 0.22));
+  color: inherit;
+  padding: 0.05em 0.3em;
+  border-radius: 3px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
 .post-html strong {
   color: #1c1917;
   font-weight: 600;
