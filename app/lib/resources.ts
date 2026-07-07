@@ -230,15 +230,15 @@ Built by Alex Sidhu, Whitehorse AI.`,
       "The exact prompt I use, ready to copy and adapt",
       "Where DIY stops and a built-for-you workflow system begins",
     ],
-    content: `At noon today my phone buzzed with a Slack message from Claude. It listed my three afternoon meetings and asked what my top three priorities were. My laptop was closed. The agent had already pulled my calendar, found the events, and sent the DM on its own. I built that in about ten minutes.
+    content: `At noon today my phone buzzed with a Slack message from Claude. My laptop was closed. The agent had already pulled my afternoon meetings, found my Slack handle, and sent the DM itself. I built it in about ten minutes, and it runs every weekday whether I'm at my desk or not.
 
 That's a cloud routine in Claude Code. Here's how to build yours.
 
 ## What a cloud routine actually is
 
-Claude Code has a feature called Routines. You write a prompt, connect your tools, set a schedule, and a Claude agent runs that prompt in Anthropic's cloud on repeat. Every weekday at noon in my case, but you could do 9am, daily, weekly, whatever makes sense.
+Claude Code has a feature called Routines. You write a prompt, connect your tools, set a schedule, and a Claude agent runs that prompt in Anthropic's cloud on repeat. Every weekday at noon in my case, but you can set it to 9am, daily, weekly, whatever fits.
 
-The important part: it runs on Anthropic's servers, not your machine. Your computer can be off. The routine fires anyway.
+The key thing: it doesn't run on your machine. It runs on Anthropic's servers. Close your laptop, go to a meeting, leave the house — the routine fires anyway. The agent has no idea where you are, and it doesn't need to.
 
 ## What you need
 
@@ -296,7 +296,7 @@ Pick your frequency, hit save. The routine is live.
 
 ## What it looks like when it runs
 
-Every weekday at noon, Claude spins up a fresh cloud session. It calls the Calendar API to read your afternoon, searches Slack for your user, and sends the DM. You get the message whether you're at your desk or not.
+Every weekday at noon, Claude spins up a fresh cloud session on Anthropic's servers. It calls the Calendar API to read your afternoon, finds you on Slack, and sends the DM. Your laptop can be closed. The message arrives either way.
 
 You can trigger it manually from [claude.ai/code/routines](https://claude.ai/code/routines) any time to test it before the scheduled run fires.
 
@@ -307,10 +307,6 @@ A noon check-in is the simplest version of this pattern. Once you see it working
 - A 9am routine that reads your inbox and surfaces the three emails that need a reply today
 - A weekly routine that pulls your ad spend and flags the campaigns that are underperforming
 - A Friday routine that scans your CRM for leads that have gone quiet and drafts follow-ups
-
-The ceiling on the DIY version is prompt quality. Writing a routine that reliably handles complex multi-tool work, stays accurate across edge cases, and actually gets used requires iteration. Most people build the first one and stall on the second or third.
-
-That's where Whitehorse comes in. We build these workflows end to end, as part of a full AI operating system for your business. If you want a done-for-you version of what you just read, an audit is where that starts.
 
 ## Start here
 
