@@ -220,7 +220,7 @@ Built by Alex Sidhu, Whitehorse AI.`,
   },
   {
     slug: "the-ai-accountability-check-in",
-    title: "The AI Accountability Check-In",
+    title: "How to Have Claude Run Even When Your Laptop Is Shut",
     date: "2026-07-07",
     excerpt:
       "How to build a Claude Code routine that pulls your calendar and Slack DMs you a midday check-in every weekday, automatically, even when your laptop is closed. About ten minutes to set up.",
@@ -228,7 +228,7 @@ Built by Alex Sidhu, Whitehorse AI.`,
       "What a cloud routine is and how it runs without your computer",
       "Connect Google Calendar and Slack in under five minutes",
       "The exact prompt I use, ready to copy and adapt",
-      "Where DIY stops and a built-for-you workflow system begins",
+      "Other routines you can build on the same pattern once it's running",
     ],
     content: `At noon today my phone buzzed with a Slack message from Claude. My laptop was closed. The agent had already pulled my afternoon meetings, found my Slack handle, and sent the DM itself. I built it in about ten minutes, and it runs every weekday whether I'm at my desk or not.
 

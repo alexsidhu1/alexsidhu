@@ -5,7 +5,7 @@ import GuideCapture from "../components/GuideCapture";
 import { getResource } from "../lib/resources";
 
 export const metadata: Metadata = {
-  title: "The AI Accountability Check-In",
+  title: "How to Have Claude Run Even When Your Laptop Is Shut",
   description:
     "Step-by-step guide to building a Claude Code routine that pulls your calendar and Slack DMs you a midday check-in every weekday. Enter your email and it unlocks right here.",
 };
@@ -46,7 +46,7 @@ export default function RoutinePage() {
             </p>
             <h1 className="font-serif text-4xl md:text-6xl font-medium text-warm-text leading-tight mb-6">
               <span className="bg-warm-accent/25 [box-decoration-break:clone] [-webkit-box-decoration-break:clone] rounded-[4px] px-2 py-0.5 -mx-1 leading-[1.35]">
-                The AI Accountability Check-In
+                How to Have Claude Run Even When Your Laptop Is Shut
               </span>
             </h1>
             <p className="text-lg text-warm-muted leading-relaxed">
