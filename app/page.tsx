@@ -62,7 +62,7 @@ export default async function Home() {
                   takes.
                 </p>
                 <p className="text-base text-warm-text font-medium max-w-md leading-relaxed mb-8">
-                  Sign up below to receive it every Friday morning!
+                  Sign up below to receive it every Monday morning!
                 </p>
                 <SubscribeForm />
               </div>
