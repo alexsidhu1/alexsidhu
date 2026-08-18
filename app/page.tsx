@@ -197,19 +197,33 @@ export default async function Home() {
                   </a>
                   <div className="flex gap-6 text-sm">
                     <a
-                      href="#"
+                      href="https://www.instagram.com/alex.sidhu/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-warm-muted hover:text-warm-text transition-colors"
+                    >
+                      Instagram
+                    </a>
+                    <a
+                      href="https://twitter.com/alexbsidhu"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-warm-muted hover:text-warm-text transition-colors"
                     >
                       Twitter
                     </a>
                     <a
-                      href="#"
+                      href="https://www.linkedin.com/in/alexander-sidhu-8165a41a3/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-warm-muted hover:text-warm-text transition-colors"
                     >
                       LinkedIn
                     </a>
                     <a
-                      href="#"
+                      href="https://github.com/alexsidhu1"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-warm-muted hover:text-warm-text transition-colors"
                     >
                       GitHub

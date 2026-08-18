@@ -33,6 +33,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
+    site: "@alexbsidhu",
+    creator: "@alexbsidhu",
     title: "Alex Sidhu",
     description:
       "Thoughts on AI, building businesses, and life, plus a newsletter.",
