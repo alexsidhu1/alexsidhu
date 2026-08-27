@@ -378,6 +378,122 @@ Open a blank file and write your ten most-hated phrases. The words that make you
 
 Built by Alex Sidhu, Whitehorse AI.`,
   },
+  {
+    slug: "the-five-ai-essays",
+    title: "The Five AI Essays Worth Reading",
+    date: "2026-08-27",
+    excerpt:
+      "The five documents that actually shaped how serious people think about where AI is going. Each one with a bio, a reading time, and an honest verdict on where it holds up. Plus the order to read them in, which is not the order they were published.",
+    highlights: [
+      "The five essays, who wrote them, and what each one actually argues",
+      "My verdict on each, including where two of them are probably wrong",
+      "The order to read them in, so the five build one argument instead of five",
+      "Reading times, so you know what you are committing to before you start",
+    ],
+    content: `Someone asked me what to read to understand where AI is actually going. Not news, not threads. The real documents.
+
+There are five. They're the ones that serious people keep arguing with, which is a better signal than how often something gets shared.
+
+Here's the thing nobody tells you when they hand you this list. These five disagree with each other, sharply, and they're all written by clever, confident people. Read them in the wrong order without knowing that, and you'll walk away believing whichever one you happened to finish last.
+
+So each one below gets a bio, a reading time, and my honest read on where it holds up. Then an order to read them in, which is not the order they were published.
+
+## 1. Situational Awareness: The Decade Ahead
+
+**Leopold Aschenbrenner, June 2024. Around 165 pages, so call it three to four hours.** Free at [situational-awareness.ai](https://situational-awareness.ai/).
+
+Aschenbrenner was on OpenAI's Superalignment team and left in April 2024, over an alleged information leak he disputes. He graduated valedictorian from Columbia at 19. This is the document he wrote afterwards.
+
+The argument runs on extrapolation. Count the orders of magnitude coming from compute, algorithmic efficiency, and what he calls unhobbling, then draw the line forward. You land on AGI around 2027 and superintelligence shortly after. From there it turns geopolitical: trillion-dollar compute clusters, a US and China race, and eventually the national security state stepping in to run the whole thing.
+
+**My verdict.** This is the frame everyone else on this list is arguing against, which by itself makes it required reading. The scaling curves have held up better than the calendar has.
+
+But read it knowing he then raised a fund, reported around $1.5 billion, on this exact thesis. That's not a knock on his honesty. He clearly believed it before there was money in it. It does mean the confidence is doing work that the evidence alone wouldn't carry. Take the frame, discount the certainty.
+
+## 2. Why I don't think AGI is right around the corner
+
+**Dwarkesh Patel, June 2025. Fifteen minutes.** Free at [dwarkesh.com](https://www.dwarkesh.com/p/timelines-june-2025).
+
+Patel hosts the podcast where most of these people get interviewed at length, including Aschenbrenner. He's spent more hours in conversation with the field than almost any outsider, and this is what he came away thinking.
+
+His argument is narrow and strong. Continual learning is the bottleneck. A model doesn't get better at your job the way a new hire does. You can't give it durable high-level feedback that sticks, so you're mostly stuck with what came out of the box. Until that changes, it can't do most white collar work, no matter how well it does on evaluations.
+
+**My verdict.** Start here. It's the shortest thing on the list and it calibrates everything else.
+
+It's also the one I trust most, because the bottleneck he names is exactly the one you feel the moment you try to use these tools for real work. You explain your context, get something good, close the tab, and do it again tomorrow. Anyone who has actually tried to put AI into a business recognises this immediately.
+
+## 3. AI 2027
+
+**Daniel Kokotajlo, Scott Alexander, Thomas Larsen, Eli Lifland and Romeo Dean. Published 3 April 2025, with an addendum in November. About two hours.** Free at [ai-2027.com](https://ai-2027.com/).
+
+A month-by-month scenario running from mid-2025 to late 2027, following four generations of AI agents. Kokotajlo is ex-OpenAI. Alexander writes Astral Codex Ten. It ends twice, on purpose: one branch where the race continues, one where it slows.
+
+**My verdict.** Read it as fiction with a bibliography, because that's what it is, and the authors are upfront about it.
+
+The month-by-month specificity is both the point and the weakness. Committing to dates makes a forecast falsifiable, which is more honest than vague gestures at the future. It also means a lot of the 2025 and 2026 detail simply didn't happen the way it's written.
+
+Don't read it for the calendar. Read it for the two endings, and for how small the decisions are that separate them.
+
+## 4. The Intelligence Curse
+
+**Luke Drago and Rudolf Laine, April 2025. Around two hours.** Free at [intelligence-curse.ai](https://intelligence-curse.ai/).
+
+This one borrows its shape from the resource curse, the pattern where countries sitting on oil end up worse governed than countries that aren't.
+
+The mechanism is simple and uncomfortable. States and companies currently need capable people, and that need is what quietly funds education, healthcare and social mobility. If the output starts coming from models instead, the incentive to invest in people goes with it. Not through malice. Through indifference.
+
+Their answers point in one direction: get AI into the hands of individuals, augment people in the near term, and align models to users rather than to institutions.
+
+**My verdict.** The best economic argument on the list, and the one that matters most if you own a business.
+
+It also lands somewhere useful rather than despairing. The practical version of this argument is that you want to own your tools and your context rather than rent your intelligence from whoever's selling it. That's a decision you can act on this quarter, which is more than the other four give you.
+
+## 5. The Last Invention
+
+**Alex Brogan, May 2025. Twelve parts, two to three hours.** Free at [thelastinvention.ai](https://thelastinvention.ai/).
+
+The least cited thing on this list and the most practical. Eight numbered essays plus three supplements, running from how close AGI is through work, wealth, preparation and meaning.
+
+The spine: AGI is plausibly within five years, five technical hurdles are what's left, and society is about as ready as it was for a pandemic. Then it phases out what follows. Assistants through 2030, broad automation into the 2040s, and a post-employment economy after that.
+
+**My verdict.** Weakest on original rigour. It's synthesis rather than new analysis, and it doesn't pretend otherwise.
+
+It's also the only one of the five that spends real time on what you personally do about any of this. The others describe a wave. This one asks what you're doing in the prep window while it's still forming. That question is worth more than another timeline estimate.
+
+## The order
+
+Not chronological. This order builds one argument instead of five.
+
+| Order | Read | Why here |
+|---|---|---|
+| 1 | Dwarkesh | Fifteen minutes, and it calibrates your scepticism before anyone tries to sell you a date |
+| 2 | Situational Awareness | The maximalist case, which you can now read critically instead of credulously |
+| 3 | AI 2027 | What the maximalist case looks like as a story, with both endings |
+| 4 | The Intelligence Curse | Moves the question from when to who it happens to |
+| 5 | The Last Invention | Ends on what you actually do |
+
+Roughly eight to ten hours total. You'll disagree with at least two of them, which is the point.
+
+## Where reading stops
+
+Here's the honest gap. Not one of these five tells you what to do on Monday morning.
+
+That isn't a criticism, it isn't their job. But if you run a business, the useful question isn't whether AGI arrives in 2027 or 2037. It's whether your company has its own context, its own workflows and its own institutional memory, or whether it's renting all three from whoever's cheapest this quarter.
+
+That question has the same answer under every one of these five timelines. The businesses that come out of this well are the ones that built something of their own while everyone else was arguing about dates.
+
+That's most of what we do at Whitehorse. We build a brain for a company first, meaning a model of how that specific business actually works, then the workflows that run on top of it. It's the same idea as the Intelligence Curse argument, pointed at one company instead of a civilisation: own the thing, don't rent it.
+
+If you want to know what that looks like for your business specifically, an audit is where it starts. We map where the time actually goes and what's worth building. No obligation past that.
+
+## Start here
+
+Open the Dwarkesh piece. It's fifteen minutes and you can do it now.
+
+If it makes you want to read the other four, you've got your next month sorted. If it doesn't, you've still got the single best argument for why the loudest predictions might be wrong, which is worth fifteen minutes on its own.
+
+Built by Alex Sidhu, Whitehorse AI.`,
+  },
 ];
 
 export function getResource(slug: string): Resource | undefined {
