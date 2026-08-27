@@ -97,14 +97,6 @@ export default async function Home() {
                 sometimes) in thinking deeply about simple things and building a
                 better future — for both myself and the world.
               </p>
-              <p>
-                I felt like I needed a place to capture my thoughts. I&apos;ve
-                put off doing this for a while because I feel like action and
-                creating great things is better and more respectable than
-                entertaining analytical bourgeois behaviour. But I think deep
-                introspection — putting thoughts to paper, and doing it
-                consistently — is important.
-              </p>
               <p className="font-serif text-warm-text text-lg italic">Enjoy.</p>
             </div>
           </div>
@@ -118,7 +110,7 @@ export default async function Home() {
             <div className="flex items-end justify-between mb-14">
               <div>
                 <SectionLabel>Writing</SectionLabel>
-                <SectionHeading>Thoughts</SectionHeading>
+                <SectionHeading>Newsletter</SectionHeading>
               </div>
               <Link
                 href="/thoughts"
