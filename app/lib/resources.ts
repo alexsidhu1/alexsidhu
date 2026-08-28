@@ -390,9 +390,7 @@ Built by Alex Sidhu, Whitehorse AI.`,
       "The intelligence curse, and what happens when capable people stop being needed",
       "The order to read them in, so the five build one argument instead of five",
     ],
-    content: `These are the foundational articles I would read if I wanted to understand the state of AI right now.
-
-## Start with Dwarkesh (most digestible)
+    content: `## Start with Dwarkesh (most digestible)
 
 [Why I don't think AGI is right around the corner](https://www.dwarkesh.com/p/timelines-june-2025). June 2025.
 
@@ -405,7 +403,7 @@ Someone you hire in January is better in June. They picked things up, sat in the
 
 ## Then Aschenbrenner
 
-Situational Awareness. June 2024. Around 165 pages, so give it an afternoon (but definitely worth the read)
+[Situational Awareness](https://situational-awareness.ai/). June 2024. Around 165 pages, so give it an afternoon (but definitely worth the read)
 
 Aschenbrenner was on OpenAI's superalignment team until April 2024. He left over an alleged leak he disputes, and wrote this not long after. Columbia valedictorian at 19, which tells you something about the register before you open it.
 
@@ -415,7 +413,7 @@ Then it turns geopolitical quickly. Trillion-dollar clusters, a race with China,
 
 ## AI 2027
 
-April 2025. Daniel Kokotajlo, who left OpenAI, Scott Alexander of Astral Codex Ten, and three others.
+[AI 2027](https://ai-2027.com/). April 2025. Daniel Kokotajlo, who left OpenAI, Scott Alexander of Astral Codex Ten, and three others.
 
 Month by month from mid-2025 to late 2027, following four generations of AI agents as each one builds the next. It ends twice on purpose. One branch where the race keeps running, one where it slows.
 
@@ -423,7 +421,7 @@ It paints a (caveated) picture of how AI may progress and the two paths we could
 
 ## The Intelligence Curse
 
-April 2025. Luke Drago and Rudolf Laine.
+[The Intelligence Curse](https://intelligence-curse.ai/). April 2025. Luke Drago and Rudolf Laine.
 
 The title borrows from the resource curse, where countries sitting on oil somehow end up worse governed than countries without it. The money arrives whether or not anyone builds a decent school, so eventually nobody builds one.
 
@@ -437,7 +435,7 @@ They aren't fatalists about it, which I appreciated. Their answers all point one
 
 ## The Last Invention is the odd one out
 
-May 2025. Alex Brogan. Twelve parts.
+[The Last Invention](https://thelastinvention.ai/). May 2025. Alex Brogan. Twelve parts.
 
 Actually written by an Australian. It goes into a nuanced dive over how AI may impact specific industries.
 
