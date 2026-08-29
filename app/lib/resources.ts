@@ -455,24 +455,30 @@ Built by Alex Sidhu, Whitehorse AI.`,
     excerpt:
       "The free skill that stops your AI burying the answer. Action first, numbered steps, no \"Great question!\" Two minutes to install, and it works on Claude Code, Cursor, Codex, Gemini and Zed.",
     highlights: [
-      "The two commands that install it, plus the versions for Cursor, Codex, Gemini and Zed",
+      "The two commands that install it, plus the versions for Codex, Cursor, Gemini, Qwen, Zed and Pi",
       "Three ways to grab the file straight from GitHub if you would rather not install a plugin",
-      "The ten rules and why each one exists, including the one I would have skipped",
-      "How to fork it into your own house style in about twenty minutes",
+      "Exactly where the file has to sit for your tool to find it",
+      "Why installing it changes nothing until you turn it on yourself",
     ],
     content: `"Great question! Let me take a look at that for you."
 
-Nine words, none of them the answer.
+You've heard that before.
 
-Then a paragraph of context you didn't ask for, the instruction buried in the middle, and a closing line asking if you'd like it to dig deeper.
+Then a paragraph of context you didn't ask for, a suggestion buried in the middle, and a closing line asking if you'd like it to dig deeper. You scroll back up to find the actual instruction. Somewhere in there you lose the thread of what you were doing.
 
-That's a shape problem, not a model problem. And there's a free skill that fixes it in two minutes. It's called \`i-have-adhd\`, an engineer called Ayoub G. built it, and Swanny sent it to me.
+That's not a model problem. It's a shape problem. The answer was in there, it was just wrapped in fifteen sentences of throat-clearing.
 
-## What changes
+There's a fix, and it takes two minutes to install.
+
+It's called \`i-have-adhd\`.
+
+## What actually changes
+
+Same question, same model, before and after.
 
 **Before**
 
-> Great question! Let me think about this. Your auth flow has a few moving pieces: the middleware, the token verification, and the cookie handling. Looking at \`src/auth.ts\`, the \`verifyToken\` function (around lines 42-58) seems to be using an older \`jsonwebtoken\` API. One approach would be to update the package and rewrite that function. By the way, you might also want to look at your dependency versions overall. Hope this helps!
+> Great question! Let me think about this. Your auth flow has a few moving pieces: the middleware, the token verification, and the cookie handling. Looking at \`src/auth.ts\`, the \`verifyToken\` function (around lines 42-58) seems to be using an older \`jsonwebtoken\` API. One approach would be to update the package and rewrite that function. After making the change, you'd want to run the auth tests to confirm nothing breaks. By the way, you might also want to look at your dependency versions overall. Hope this helps! Let me know if you want to dig deeper.
 
 **After**
 
@@ -484,75 +490,74 @@ That's a shape problem, not a model problem. And there's a free skill that fixes
 >
 > Next: paste the first failing line if any test fails.
 
-Same question, same model. The dependency note is gone, and that's the trade.
+Don't worry, it's just an example, you don't have to be super technical.
 
 ## Install it
+
+Two minutes. Claude Code first, since that's what most people reading this are on.
 
 \`\`\`bash
 claude plugin marketplace add ayghri/i-have-adhd
 claude plugin install i-have-adhd@i-have-adhd
 \`\`\`
 
-Restart, type \`/i-have-adhd\`. It stays on for that session. "Stop adhd mode" turns it off.
+Restart Claude Code, then type \`/i-have-adhd\`. It stays on for that session. Say "stop adhd mode" or "normal mode" and it's off again.
 
-Want it on from message one, every session:
+Check it landed with \`claude plugin list\`. Update it later with \`claude plugin marketplace update i-have-adhd\`.
 
-\`\`\`bash
-touch ~/.claude/.i-have-adhd-always
-\`\`\`
+Not on Claude Code? It works on most of them.
 
-Not on Claude Code? \`npx skills add ayghri/i-have-adhd\` covers Cursor, Copilot and most others. Codex, Gemini, Qwen, Zed and Pi each have their own one-liner in the repo's \`INSTALL.md\`.
-
-## The ten rules
-
-| Rule | What it stops |
+| Tool | Install |
 |---|---|
-| 1. Lead with the next action | Hunting for the instruction inside a paragraph |
-| 2. Number multi-step tasks | "First do this and then that and then" |
-| 3. End with one concrete next action | A reply with nothing to actually do |
-| 4. Suppress tangents | Three new problems raised before the first is closed |
-| 5. Restate state every turn | Losing track of which step you're on |
-| 6. Specific time estimates | "This will take some work" |
-| 7. Make completed work visible | Wins buried in a recap |
-| 8. Matter-of-fact tone for problems | "Uh oh, there seems to be an issue" |
-| 9. Cap lists at 5 items | Ten unranked options, none chosen |
-| 10. No preamble, no recap, no closers | "Great question!" and "Hope this helps!" |
+| Codex | \`codex plugin marketplace add ayghri/i-have-adhd --ref main\` then \`codex plugin add i-have-adhd@i-have-adhd\`. Invoke with \`$i-have-adhd\` |
+| Cursor, Amp, Copilot | \`npx skills add ayghri/i-have-adhd\` (add \`-g\` for every project) |
+| Gemini CLI | \`gemini extensions install https://github.com/ayghri/i-have-adhd\` |
+| Qwen Code | \`qwen extensions install ayghri/i-have-adhd\` |
+| Zed | Agent Panel, Skills manager, "Create skill from URL", paste the repo's \`SKILL.md\` link |
+| Pi | \`pi install https://github.com/ayghri/i-have-adhd\` |
 
-Rule 10 does the most visible work. Rule 5 is the one I'd have skipped and shouldn't have: "step 3 of 5 done, next is the backfill" is the difference between picking a task back up after lunch and re-reading the whole thread.
-
-It also names six cases where the rules lose, which is what makes it a real skill rather than a blunt "be brief". Ask it to explain and it explains fully. Destructive action next and it confirms first. Three failed fixes and it stops to name the assumption that might be wrong.
+One thing worth knowing. In Claude Code, Codex and Qwen, installing it changes nothing on its own. The skill declares \`disable-model-invocation: true\`, which means the assistant can't switch it on by itself. You type the command or it stays off. Other tools read every skill's description at startup and may activate it themselves.
 
 ## Get the file yourself
 
-You don't have to install a plugin. It's one markdown file: [github.com/ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd), at \`skills/i-have-adhd/SKILL.md\`.
+You don't have to install a plugin. The skill is one markdown file, about 1,400 words, and you can drop it straight into your skills folder instead.
 
-Open [the file](https://github.com/ayghri/i-have-adhd/blob/main/skills/i-have-adhd/SKILL.md), hit "Raw", copy. Or green "Code" button, "Download ZIP". Then save it to \`~/.claude/skills/i-have-adhd/SKILL.md\` and restart.
+The repo is [github.com/ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd). The file you want is \`skills/i-have-adhd/SKILL.md\`.
 
-Read it before you use it. Ten rules, a bad and a good example under each, six minutes.
+Three ways to get it, easiest first.
 
-## Make it yours
+**Read it in the browser.** Open [the file on GitHub](https://github.com/ayghri/i-have-adhd/blob/main/skills/i-have-adhd/SKILL.md). Click "Raw" at the top right and you get the plain text, ready to copy.
 
-Every example in the file is code, because a developer wrote it. If your work isn't in a terminal, swap them out.
+**Download the whole repo.** Green "Code" button on the repo homepage, then "Download ZIP". Unzip it and the skill is in \`skills/i-have-adhd/\`. This is probably the easiest way for most people.
 
-> Bad: "Let's think about this. There are a few moving pieces to sorting out your insurance claim..."
->
-> Good: "Find the claim number. It's in the email from the insurer, subject line starts with 'Your claim'. Then come back here."
+**One command.** This pulls the file straight into the right folder for Claude Code:
 
-Twenty minutes: grab the file, replace every example with one from your actual work, save it, restart.
+\`\`\`bash
+mkdir -p ~/.claude/skills/i-have-adhd
+curl -fsSL https://raw.githubusercontent.com/ayghri/i-have-adhd/main/skills/i-have-adhd/SKILL.md \\
+  -o ~/.claude/skills/i-have-adhd/SKILL.md
+\`\`\`
 
-That's the real lesson, and it's bigger than this one skill. A skill is a folder with a text file in it. That's the whole technology. You write down how you want something done once, and then you never explain it again.
+Wherever the file lands, it needs to sit in a folder your tool scans:
 
-## Where this stops
+| Tool | Folder |
+|---|---|
+| Claude Code | \`~/.claude/skills/i-have-adhd/\` |
+| Cursor | \`~/.cursor/skills/i-have-adhd/\` |
+| Copilot | \`~/.copilot/skills/i-have-adhd/\` |
+| Zed | \`~/.config/zed/skills/i-have-adhd/\` |
 
-One skill fixes one thing. The interesting version is thirty of them.
+Restart, type \`/i-have-adhd\`, and it behaves exactly like the plugin version.
 
-How your proposals are structured. How a new client gets onboarded. How an invoice gets raised and the pricing rules behind it. Each one written down once by the person who does it best. At that point you've written down how your company works, in a form something can execute.
+Worth actually reading the file before you use it, by the way. It's ten rules with a bad example and a good example under each, and the reasoning is the useful part. Takes about six minutes.
 
-That's what we build at Whitehorse: a brain for the business first, then the workflows on top. The hard part was never the file format, it's getting what's in people's heads onto the page. If you want to know what that looks like for your business, an audit is where it starts.
+MIT licensed, by Ayoub G. Fork it, edit it, ship it, no permission needed.
 
 ## Start here
 
-Run the two commands. Ask it something you already asked it this week. You'll know within one reply.
+Run the two install commands. Type \`/i-have-adhd\`. Ask it something you already asked it this week.
+
+Two minutes, and you'll know within one reply whether you want it always-on.
 
 Built by Alex Sidhu, Whitehorse AI.`,
   },
