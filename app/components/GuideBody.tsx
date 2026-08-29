@@ -38,6 +38,13 @@ const components: Components = {
       {children}
     </code>
   ),
+  // Fenced blocks scroll horizontally inside their own box. Without this a single
+  // long line pushes the whole page wide on mobile.
+  pre: ({ children }) => (
+    <pre className="bg-cream-dark rounded-md px-4 py-3 my-6 overflow-x-auto text-[0.88em] leading-[1.7] [&_code]:bg-transparent [&_code]:p-0 [&_code]:whitespace-pre">
+      {children}
+    </pre>
+  ),
   hr: () => <hr className="border-warm-border my-12" />,
   strong: ({ children }) => (
     <strong className="font-medium text-warm-text">{children}</strong>

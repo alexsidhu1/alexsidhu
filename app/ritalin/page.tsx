@@ -52,8 +52,8 @@ export default function RitalinPage() {
             <p className="text-lg text-warm-muted leading-relaxed">
               The free skill that stops your AI burying the answer. Action
               first, numbered steps, no &ldquo;Great question!&rdquo; Two minutes
-              to install. Drop your email and the whole thing unlocks right
-              here, including the full text.
+              to install, on Claude Code, Cursor, Codex, Gemini or Zed. Drop
+              your email and the guide unlocks right here.
             </p>
           </div>
 
