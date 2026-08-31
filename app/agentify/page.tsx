@@ -5,13 +5,13 @@ import GuideCapture from "../components/GuideCapture";
 import { getResource } from "../lib/resources";
 
 export const metadata: Metadata = {
-  title: "Emails That Sound Like You",
+  title: "The Three Videos",
   description:
-    "Connect Gmail, let Claude learn from your own sent emails, and turn it into a Skill that applies your voice automatically. No code, just claude.ai. Enter your email and it unlocks right here.",
+    "Grab the free guide. The only three AI videos I would send someone starting from scratch, with an honest verdict on each. Enter your email and it unlocks right here.",
 };
 
-export default function EmailPage() {
-  const guide = getResource("emails-that-sound-like-you");
+export default function AgentifyPage() {
+  const guide = getResource("the-three-videos");
   if (!guide) notFound();
 
   return (
@@ -46,13 +46,13 @@ export default function EmailPage() {
             </p>
             <h1 className="font-serif text-4xl md:text-6xl font-medium text-warm-text leading-tight mb-6">
               <span className="bg-warm-accent/25 [box-decoration-break:clone] [-webkit-box-decoration-break:clone] rounded-[4px] px-2 py-0.5 -mx-1 leading-[1.35]">
-                Emails That Sound Like You
+                The Three Videos
               </span>
             </h1>
             <p className="text-lg text-warm-muted leading-relaxed">
-              Connect Gmail, let Claude learn from your own sent emails, and
-              turn it into a Skill that applies your voice automatically. No
-              code, just claude.ai. Drop your email and it unlocks right here.
+              The only three AI videos I would send someone starting from
+              scratch. Chat, then cowork, then code, with an honest verdict on
+              each. Drop your email and it unlocks right here.
             </p>
           </div>
 
@@ -61,7 +61,7 @@ export default function EmailPage() {
           <GuideCapture
             content={guide.content}
             highlights={guide.highlights}
-            source="email-landing"
+            source="three-videos-landing"
           />
         </div>
       </main>

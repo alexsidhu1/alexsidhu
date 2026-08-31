@@ -319,62 +319,71 @@ Built by Alex Sidhu, Whitehorse AI.`,
     title: "Emails That Sound Like You",
     date: "2026-07-07",
     excerpt:
-      "One file, five minutes. Set your tone, your banned words, and your sentence rhythm in Claude Code, and every email it drafts from then on sounds like you wrote it.",
+      "Connect Gmail, let Claude learn from your own sent emails, and turn it into a Skill that applies your voice automatically from then on. Ten minutes, nothing to install, no code.",
     highlights: [
-      "The four sections every communication style file needs",
-      "The exact banned phrases that make AI emails obvious — and how to kill them",
-      "How to wire it into Claude Code so it reads your rules automatically",
+      "The Gmail connector that lets Claude read your real sent emails, not a hypothetical version of your writing",
+      "The exact prompt that turns your own emails into a communication-style profile",
+      "How to package it as a Skill so Claude applies it automatically in every new chat",
       "Where one-person voice rules stop and a company-wide AI standard begins",
     ],
-    content: `Someone replied to an email last week saying it was one of the clearest I'd sent. I'd written maybe ten words of it. Claude wrote the rest. The thing that made it sound like me wasn't prompting skill or a special model. It was a rules file I set up once and haven't thought about since.
+    content: `Someone replied to an email last week saying it was one of the clearest I'd sent. I'd written maybe ten words of it. Claude wrote the rest. The thing that made it sound like me wasn't a clever prompt. It was a file I built once, from my own sent emails, that Claude now checks every time I ask it to draft something.
 
-Here's what it is and how to build yours.
+You don't need Claude Code or a developer to set this up. It's three things inside claude.ai: connect Gmail, let Claude read your own sent emails and write your style profile, then turn that into a Skill so it applies itself. Here's exactly how.
 
-## What a communication style file actually does
+## Why your emails still sound like a robot wrote them
 
-When Claude drafts something, it defaults to generic professional language. Clear, technically correct, nobody's voice. A \`communication-style.md\` file is a set of rules Claude reads before writing anything: your tone, your banned words, your sentence rhythm. Once it's in place, every draft starts from your voice instead of from scratch.
+Claude defaults to generic professional language because it has no idea how you actually write. Clear, correct, and completely un-you. The fix isn't a better prompt each time, it's giving Claude a permanent reference for your voice: your tone, the phrases you can't stand, your sentence rhythm. Once that reference exists and Claude checks it automatically, every draft starts from you instead of from a blank, corporate default.
 
-## What to put in it
+## Step 1: Connect Gmail (about a minute)
 
-The file is plain English. No code. Four sections are worth having:
+In Claude, go to **Customize > Connectors** (or click the **+** in any chat and choose Connectors). Find Gmail, connect it, and authorize it. This is available on every plan, including Free.
 
-**Tone.** How you write in different contexts. "Internal messages: casual and direct. Client emails: professional but plain-spoken, never corporate." The more specific, the better.
+Worth knowing going in: Claude can read and search your mail and create drafts, but it **can't send** on your behalf. That's a deliberate limit, not a bug, and it means the last step is always you hitting send.
 
-**What to avoid.** This is the most important section. List the words and patterns you hate seeing in your own writing. Em dashes. Emojis. Phrases like "circle back", "touch base", "moving forward". The AI-tell lines that make it obvious a machine wrote it: "I hope this finds you well", "please don't hesitate to reach out", "as per our conversation". Kill them all by name.
+## Step 2: Let Claude build your style profile from your real emails
 
-**Sentence rhythm.** How your sentences should feel. Contractions? Short sentences or longer ones? How much variety? "Contractions are good. Vary sentence length. Avoid strings of three-word fragments back to back."
+Start a new chat and ask Claude to look at how you actually write, not how you think you write. Something like:
 
-**Default.** What's your baseline? "When in doubt: shorter, sharper, more concrete. Strip filler. Trust the reader."
+> Search my Gmail Sent folder for the last 20-30 emails I've written. Read through them and write me a communication-style.md file that covers: my tone in different contexts, phrases and patterns I overuse or should cut (including the generic AI-sounding lines, like "I hope this finds you well" or "please don't hesitate to reach out"), my sentence rhythm, and one default line for when in doubt. Be specific, not vague.
 
-## How to set it up (5 minutes)
+This is my own recommended prompt, not an official Claude script, but it's a straightforward use of what the Gmail connector actually does: it can search and read your Sent mail on request. Claude will hand back a first draft. Read it properly. Cut anything that doesn't sound like you, and add the phrases you personally can't stand that it missed. This is the file that matters most, so don't rubber-stamp the first pass.
 
-1. Open your Claude Code project folder. If you haven't set one up yet, the free template at [github.com/alexsidhu1/execassistant-template](https://github.com/alexsidhu1/execassistant-template) gives you the full structure including this file.
-2. Create the \`.claude/rules/\` folder inside your project if it doesn't exist.
-3. Create a new file: \`communication-style.md\`.
-4. Fill it in. Copy the structure above and replace every section with your actual rules. Don't be vague: "professional" tells Claude nothing. "No em dashes, no emojis, never open with I hope this email finds you well" tells it exactly what to cut.
-5. Add one line near the top of your \`CLAUDE.md\`: \`@.claude/rules/communication-style.md\`. This tells Claude to read your rules at the start of every session. If you're using the execassistant template, this line is already wired in.
+Four things worth double-checking are in it:
 
-That's it. From now on, every time you ask Claude to draft a reply, it reads your rules before it writes a word.
+**Tone.** How you write in different contexts. "Internal messages: casual and direct. Client emails: professional but plain-spoken, never corporate."
 
-## Using it to draft an email
+**What to avoid.** The most important section. Every word and pattern that makes an email sound machine-written: em dashes, emojis, "circle back", "touch base", "moving forward", "I hope this finds you well". Name them specifically.
 
-The prompt is simple. Paste the email you're replying to and say:
+**Sentence rhythm.** Contractions or not? Short sentences or longer ones? "Contractions are good. Vary sentence length. Avoid strings of three-word fragments back to back."
 
-> Draft a reply. Keep it short. [Add any specific points you want to hit.]
+**Default.** Your baseline instinct. "When in doubt: shorter, sharper, more concrete. Strip filler."
 
-Claude reads your style rules first, so it knows not to use em dashes, not to open with "I hope this finds you well," and to match your rhythm. Review the draft, tweak what needs tweaking, send.
+## Step 3: Turn it into a Skill (this is the part that makes it stick)
 
-You'll make fewer edits over time as the rules get sharper. When you see something wrong in a draft, add it to the file. "Never say 'as discussed'." "Don't use bullet points in client emails." Each addition compounds.
+A file sitting in a chat only helps that one conversation. A Skill is what makes Claude check your style automatically, every time, in any new chat.
+
+1. Make sure **Code execution and file creation** is turned on: **Settings > Capabilities** for your own account. (If you're on a Team or Enterprise plan, your workspace owner turns this on once for everyone, under organization Skills settings.)
+2. Ask Claude to save your finished style file as \`SKILL.md\`, with a short header at the top: a \`name\` and a \`description\`. The description matters more than anything else here, it's what Claude reads to decide when to use the skill, so make it specific and say plainly that this applies whenever you're drafting or rewriting an email.
+3. Zip that file so it sits at the top level of the zip (Claude can talk you through this if you're not sure how).
+4. Go to **Customize > Skills**, hit the **+**, choose **Create skill > Upload a skill**, and upload the zip.
+
+## Step 4: Draft an email in your own voice
+
+Open a new chat, paste in whatever you're replying to, and just say "draft a reply." Claude checks its available skills against your request, sees the description matches "drafting an email," and applies your voice rules without you asking twice.
+
+It won't catch every single time. If a draft comes back sounding generic, name the skill directly: "use my email-voice skill for this." That forces it.
+
+One more thing worth doing: ask Claude to drop the finished draft straight into your Gmail Drafts folder using the connector. It'll be sitting there waiting. Open Gmail, read it over, hit send yourself.
 
 ## The honest ceiling
 
-This setup is powerful for one person. Your voice, your rules, your project. The limitation: it lives in a folder on your computer. Everyone on your team has their own setup, or no setup at all. Company emails still sound different depending on who sent them.
+This whole setup lives in your Claude account. It's genuinely useful for you, and it took maybe ten minutes to build. But it's still one person's voice, in one person's settings. Nobody else on your team gets it unless they build their own, and every tool they use for outbound comms needs its own version of the same fix.
 
-The next level is a team-wide voice standard baked into a shared system, so every person drafting a client email starts from the same baseline. Same tone, same banned phrases, same rules enforced automatically. That's what we build into the AI operating systems at Whitehorse. If you want that for your business, an audit is where it starts.
+The next level is a voice standard that's built once and enforced automatically, everywhere, for everyone on the team, not something each person sets up for themselves. That's what we build into the AI operating systems at Whitehorse. If you want that for your business, an audit is where it starts.
 
 ## Start here
 
-Open a blank file and write your ten most-hated phrases. The words that make you wince when you see them in an email draft. Get those in the file today, and the next email Claude writes for you won't have a single one of them.
+Open Claude right now, connect Gmail, and ask it to pull your last 20 sent emails. That's the whole first step, and it takes about two minutes. You'll have a first draft of your style file before your coffee's cold.
 
 Built by Alex Sidhu, Whitehorse AI.`,
   },
@@ -560,6 +569,54 @@ Run the two install commands. Type \`/i-have-adhd\`. Ask it something you alread
 Two minutes, and you'll know within one reply whether you want it always-on.
 
 Built by Alex Sidhu, Whitehorse AI.`,
+  },
+  {
+    slug: "the-three-videos",
+    title: "The Three Videos",
+    date: "2026-08-31",
+    excerpt:
+      "The only three AI videos I would send someone starting from scratch. Chat, then cowork, then code, with an honest verdict on each and what the order is for.",
+    highlights: [
+      "The three videos, who made them, and what each one is actually for",
+      "An honest verdict on each, not a neutral summary",
+      "Why the order is chat, then cowork, then code",
+      "The one I run a version of every single day",
+    ],
+    content: `Someone asked me what to watch to get up to speed on AI.
+
+I've sat through a lot of bad AI content this year. Most of it is either a demo of something you can't use or a lecture on something you don't need yet. So here are the only three I'd actually send.
+
+The order is chat, then cowork, then code. 
+
+| # | Video | Who | Length |
+|---|---|---|---|
+| 1 | [Learn 80% of Claude Cowork in Under 20 Minutes](https://www.youtube.com/watch?v=z9rdrNrkvDY) | Jeff Su | 18:54 |
+| 2 | [How AI agents & Claude skills work](https://www.youtube.com/watch?v=S_oN3vlzpMw) | Greg Isenberg with Ras Mic | 35:25 |
+| 3 | [Turn Claude Code Into Your Executive Assistant in 27 Mins](https://www.youtube.com/watch?v=mi4hcipESKQ) | Nate Herk | 27:13 |
+
+## 1. Jeff Su, Claude Cowork in under 20 minutes
+
+**What it is.** A straight walkthrough of Anthropic's desktop app and its seven capabilities: local file access, persistent memory, connectors, skills, projects, the browser extension, and scheduled tasks.
+
+**The verdict.** The best pure-usage video on this list and the only one I'd call genuinely beginner friendly. No theory, no setup pain, nothing to install before you can follow along. If you're still copying and pasting between a chat window and your actual work, this is the video that ends that habit.
+
+It's also fully timestamped, so you can jump to the capability you care about instead of watching linearly.
+
+## 2. Greg Isenberg with Ras Mic, how agents and skills work
+
+**What it is.** A conversation rather than a tutorial. Context windows, what a skill actually is under the hood, how to build one, and how to keep sharpening it.
+
+**The verdict.** This is the one that changes your mental model. The useful claim: skills load lazily. Only the name and description sit in context until the agent decides it needs the full file, which is why a folder of thirty skills costs you almost nothing until one gets used.
+
+His framing is that the models are already good, and the differentiator is the context and harness you build around them. That's an unusual thing to hear from someone whose audience wants model news.
+
+## 3. Nate Herk, Claude Code as your executive assistant
+
+**What it is.** He builds a working AI executive assistant in four phases: set up the project, load it with context and rules, add your first skills and subagents, then grow it over time.
+
+**The verdict.** Watch this third. It's the most in depth of the three and by far the most rewarding, and it will half make sense if you haven't done the other two. The demo he opens with is the honest sell: tasks that ran before he woke up.
+
+I run a version of this setup every day. It knows my clients, my priorities, my writing voice, and it drafts off all three. It's the single highest-leverage thing I've built for myself, and it started with roughly this video.`,
   },
 ];
 
