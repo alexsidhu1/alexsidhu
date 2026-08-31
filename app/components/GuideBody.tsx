@@ -45,6 +45,45 @@ const components: Components = {
       {children}
     </pre>
   ),
+  // Tables scroll inside their own box so a wide one never pushes the page
+  // sideways on mobile. Header styling matches the site's eyebrow type.
+  table: ({ children }) => (
+    <div
+      className="my-8 overflow-x-auto"
+      style={{
+        backgroundImage: [
+          "linear-gradient(to right, #FAFAF7 40%, rgba(250,250,247,0))",
+          "linear-gradient(to left, #FAFAF7 40%, rgba(250,250,247,0))",
+          "radial-gradient(farthest-side at 0 50%, rgba(28,25,23,0.22), rgba(28,25,23,0))",
+          "radial-gradient(farthest-side at 100% 50%, rgba(28,25,23,0.22), rgba(28,25,23,0))",
+        ].join(","),
+        backgroundPosition: "0 0, 100% 0, 0 0, 100% 0",
+        backgroundSize: "36px 100%, 36px 100%, 14px 100%, 14px 100%",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "local, local, scroll, scroll",
+      }}
+    >
+      <table className="w-full border-collapse text-left">
+        {children}
+      </table>
+    </div>
+  ),
+  thead: ({ children }) => (
+    <thead className="border-b border-warm-border">{children}</thead>
+  ),
+  tbody: ({ children }) => (
+    <tbody className="divide-y divide-warm-border/50">{children}</tbody>
+  ),
+  th: ({ children }) => (
+    <th className="py-3 pr-4 md:pr-6 last:pr-0 align-bottom whitespace-nowrap text-xs tracking-[0.12em] uppercase font-medium text-warm-accent">
+      {children}
+    </th>
+  ),
+  td: ({ children }) => (
+    <td className="py-4 pr-4 md:pr-6 last:pr-0 align-top text-warm-muted leading-[1.6] [&_a]:font-medium">
+      {children}
+    </td>
+  ),
   hr: () => <hr className="border-warm-border my-12" />,
   strong: ({ children }) => (
     <strong className="font-medium text-warm-text">{children}</strong>
