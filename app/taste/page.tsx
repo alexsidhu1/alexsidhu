@@ -5,9 +5,9 @@ import GuideCapture from "../components/GuideCapture";
 import { getResource } from "../lib/resources";
 
 export const metadata: Metadata = {
-  title: "Making Videos with Claude Code",
+  title: "Making Short Videos with Claude Code",
   description:
-    "The free guide to making finished videos by talking to Claude Code: setup, the brief, the six-step loop, the prompts, the pitfalls, plus the kit from the worked example. Enter your email and it unlocks right here.",
+    "A practical guide to turning a simple idea into a polished animation by talking to Claude Code. The brief, the storyboard, the loop, the prompts worth reusing. Enter your email and it unlocks right here.",
 };
 
 export default function TastePage() {
@@ -46,14 +46,14 @@ export default function TastePage() {
             </p>
             <h1 className="font-serif text-4xl md:text-6xl font-medium text-warm-text leading-tight mb-6">
               <span className="bg-warm-accent/25 [box-decoration-break:clone] [-webkit-box-decoration-break:clone] rounded-[4px] px-2 py-0.5 -mx-1 leading-[1.35]">
-                Making Videos with Claude Code
+                Making Short Videos with Claude Code
               </span>
             </h1>
             <p className="text-lg text-warm-muted leading-relaxed">
-              How I make finished, produced-looking videos by talking to
-              Claude Code. The setup, the brief, the six-step loop, the prompts
-              that earned their keep, and the kit from the worked example. Drop
-              your email and the guide unlocks right here.
+              A practical guide to turning a simple idea into a polished
+              animation by talking to Claude Code. The brief, the storyboard,
+              the review loop, and the prompts worth reusing. Drop your email
+              and the guide unlocks right here.
             </p>
           </div>
 
