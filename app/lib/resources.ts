@@ -11,6 +11,149 @@ export type Resource = {
 
 export const resources: Resource[] = [
   {
+    slug: "making-videos-with-claude-code",
+    title: "Making Videos with Claude Code",
+    date: "2026-09-04",
+    excerpt:
+      "How I make finished, produced-looking videos by talking to Claude Code: the setup, the brief, the six-step loop, the prompts that earned their keep, and the things that break renders. Comes with the kit from the worked example.",
+    highlights: [
+      "The ten-minute setup, the command that teaches Claude the render engine, and the optional HeyGen sign-in for music and voices",
+      "The six-step loop: build, check, snapshot, draft, notes, final",
+      "The exact prompts for the click punch, the typing camera follow, and synced sound",
+      "Seven things that break renders, and the downloadable kit as a worked example",
+    ],
+    content: `**Download the kit:** [client-demo-video.zip](/downloads/client-demo-video.zip). The skill and generator from the worked example at the end. 42 KB, no audio files inside.
+
+I made a 75-second demo video for a client this week. Cream background, a chat bar, someone types "Prepare the proposal for 120 Harbour Street", a click, and the finished document slides in. Emails get sorted. A voice memo turns into a CRM record. Everything gets sucked back into the chat bar and it ends on "10x your output."
+
+No After Effects. No editor. No agency. Claude Code made it, in an afternoon, and most of that afternoon was me saying "slower at the start" and "the tick is hidden at 0:41".
+
+This is how.
+
+## The idea that makes it possible
+
+Video is just frames. A web page is just pixels. If you can describe a frame in HTML and CSS, and describe how it changes over time, you can render it to video.
+
+That is what HyperFrames does. It is an open render engine: you write an HTML file with a GSAP animation timeline, and it seeks that timeline frame by frame, screenshots each one in a headless browser, and stitches them into an MP4. Deterministic, so the same file renders the same video every time.
+
+Claude Code is very good at writing HTML and GSAP. Put the two together and you have a video editor you talk to.
+
+## Set it up
+
+Ten minutes.
+
+1. Install Node 20 or newer, ffmpeg (\`brew install ffmpeg\` on a Mac), and Claude Code.
+2. Make a folder for the video. In it, run:
+
+\`\`\`bash
+npx hyperframes init my-video --example blank --non-interactive
+\`\`\`
+
+That scaffolds a project and, importantly, installs the HyperFrames skills into Claude Code. The skills are what teach Claude the rules of the engine: one paused timeline, seek-safe animation, no randomness, how to place media, how to validate. Without them Claude writes web animation, which looks fine in a browser and breaks in a render.
+
+3. Open Claude Code in that folder. Say "make me a video" and it will ask what you want. Better: give it a brief.
+
+## Optional: connect HeyGen
+
+HyperFrames is built by HeyGen, and one sign-in unlocks the paid-grade media without you sourcing it yourself:
+
+\`\`\`bash
+npx hyperframes auth login
+\`\`\`
+
+It opens a browser, you sign in or sign up, and the token is saved in your home folder, not per project. After that, when Claude needs a music bed it searches HeyGen's catalogue (about ten thousand tracks), stock images come from their asset library, voiceover uses their voices, and you can render in their cloud instead of on your laptop. Skip it and everything still works: sound and voice fall back to the local, offline engines, and renders run on your machine. I made the videos in this guide without it. Sign in when you want music or a voice that sounds like a person.
+
+## The brief
+
+Everything downstream is only as good as this paragraph. Mine for the demo was roughly:
+
+> Audience: business owners who have never used a chat AI. Message: you ask in plain English, finished work comes back. 60 seconds, 1920x1080. Cream canvas, soft colour blooms, white cards with a soft shadow, their brand colour as the accent, ours small at the end. Silent except UI sound effects. Structure: open on the lockup, three ask-and-output loops, everything pulls back into the chat bar, closing line "10x your output."
+
+Five things, every time: who watches, the one sentence they should leave with, length and format, the visual language, and the sound. If you cannot write the one sentence, you are not ready to make the video.
+
+Ask Claude to write the brief up as a file and a beat-by-beat table before it builds anything. Read the table. Fix the table. It is far cheaper than fixing a render.
+
+## The loop that actually works
+
+Every video I have made with it followed the same six steps.
+
+**1. Build.** Claude writes \`index.html\`: the scenes as layers, one GSAP timeline, timings as constants at the top.
+
+**2. Check.** \`npx hyperframes check\`. This is the gate and it is stricter than you. It lints the composition, runs it in a browser, and audits layout, contrast, motion and whether every animation survives being seeked out of order. Zero errors before anything else. On my first build it caught six things a preview had hidden.
+
+**3. Snapshot.** \`npx hyperframes snapshot --at 3,9,17,24\` gives you a contact sheet of frames. Read it like a storyboard. This is where you catch "the headline wraps to two lines" and "the card is off the edge" without watching anything.
+
+**4. Draft render.** \`npx hyperframes render --quality draft --output draft.mp4\`. Thirty seconds for a minute of video. Watch it with sound on.
+
+**5. Notes.** Talk to Claude the way you would talk to an editor. Timestamps and plain words. "The green tick at 0:41 is slightly hidden." "The zoom on the click should be bigger." "That keyboard sound is weird, use this file instead." It goes back to step one.
+
+**6. Final render.** Only when you have said yes to a draft. \`--quality high\`.
+
+The whole trick is that steps two and three are cheap and honest. You never wait for a render to find out the text overlaps.
+
+## Prompts that earned their keep
+
+Reproduce these and you skip a week of learning.
+
+"Show me the frames at 5.5, 13 and 21 seconds before you render anything." Cheapest review there is.
+
+"Every sound effect must be timed from the same constants as the animation. Never place an audio start time by hand." The first version of my video placed them by hand and they drifted within two edits.
+
+"A cursor should travel to the button, press it, and the frame should punch in about a third. Then hard cut to the output." That one sentence is most of what makes the video feel produced rather than generated.
+
+"Zoom onto the text as it types and follow the caret." It measured where the text would end before it was typed, using a hidden copy of the full sentence, and rode the camera along the line.
+
+"Use different entrances for each output. Slide from the right, drop from the top, rise from the bottom, swipe open." Same entrance twice and people stop watching.
+
+"Save the previous version as a backup before you change it." Because you will want to compare.
+
+## Sound
+
+Sound is a third of the result and almost nobody does it. Five clips, that is all: keyboard taps under the typing, a click on send, a pop when a card lands, a whoosh when something slides, one soft chime on the tick. No music. Music turns a demo into an ad.
+
+Claude can source short sound effects for you (the HyperFrames media skill has a small library and can search catalogues), but the keyboard is worth doing yourself. Record ten seconds of you typing, or grab a free one from Pixabay, and hand it over. It slices the clip to the exact length of each typing run.
+
+The rule that matters: every sound start time is derived from the same numbers as the animation. If typing starts at 7.3 seconds because the maths said so, the keyboard clip starts at 7.3 because the same maths said so.
+
+## Things that break renders
+
+A short list, all learned the expensive way.
+
+- An element that starts hidden and is revealed with a \`fromTo\` must also set \`opacity: 1\` in the destination. Otherwise it renders fine in sequence and invisible in the final video, because render workers start cold.
+- A clip-path reveal trims anything outside the box, including that tick badge on the card corner. Release the mask after the swipe.
+- Every audio element needs an id and a duration or the linter thinks all your sounds run to the end of the video.
+- Never put a CSS transform on an element GSAP also moves. They fight.
+- Translucent white text on a colour fails the contrast check. Use a solid tint.
+- Stick to the fonts the engine bundles (Inter, JetBrains Mono, Montserrat, a few others). Anything else is fetched at build time and fails on a cloud render.
+- Make up the data. A real address dates the video and can embarrass a client. A mock reads as "your documents" forever.
+
+## The worked example
+
+The kit at the top of this page is what the afternoon turned into once I had done it twice.
+
+It is a Claude Code skill (a \`SKILL.md\` file that carries the workflow and the rules above) plus a generator: one Python file that reads a \`config.json\` and writes the whole composition with the cursor, camera moves and sound already timed. Six scene types, a recall sequence, the closing card. The 25-second client-agnostic version of my video is the example config, and it took eleven minutes.
+
+Unzip it so \`~/.claude/skills/client-demo-video/SKILL.md\` exists, open Claude Code in an empty folder and say "make me a demo video for" whoever you are pitching next week. Or read \`build.py\` as a worked answer to "what does a finished one of these look like." Either is fine. Reading it is probably more useful than running it.
+
+## Where the DIY version stops
+
+You can make the promise in an afternoon now. The video is the promise.
+
+The hard part is the thing behind the chat bar. A brain that actually knows a business's documents, its CRM, its inbox. Workflows that really do draft the proposal, really do triage the inbox, really do turn a voice memo into a CRM record without anyone double-handling it. That is what we build at Whitehorse, and it is where the afternoon becomes a quarter.
+
+If you're a business owner and the video made you think "I want that to be real for us", that is the conversation. We start with an audit: two weeks, your three highest-value workflows, an honest read on what is worth automating and what is not. Reply to any newsletter email and say "audit".
+
+If you're using this to make your own videos, good. Send me one. I would genuinely like to see it.
+
+## Start here
+
+Install the three tools. Run the init command in an empty folder. Open Claude Code there and paste in a five-line brief for a video you actually need.
+
+Ask for the frames before the render. You will have something watchable within the hour.
+
+Built by Alex Sidhu, Whitehorse AI.`,
+  },
+  {
     slug: "the-ai-second-brain",
     title: "The AI Second Brain",
     date: "2026-07-02",
