@@ -1,6 +1,7 @@
 import ReactMarkdown from "react-markdown";
 import type { Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
+import CodeBlock from "./CodeBlock";
 
 // Shared Markdown renderer for guide-style content, styled to match the site.
 const components: Components = {
@@ -38,13 +39,9 @@ const components: Components = {
       {children}
     </code>
   ),
-  // Fenced blocks scroll horizontally inside their own box. Without this a single
-  // long line pushes the whole page wide on mobile.
-  pre: ({ children }) => (
-    <pre className="bg-cream-dark rounded-md px-4 py-3 my-6 overflow-x-auto text-[0.88em] leading-[1.7] [&_code]:bg-transparent [&_code]:p-0 [&_code]:whitespace-pre">
-      {children}
-    </pre>
-  ),
+  // Fenced blocks get a copy button and scroll horizontally inside their own
+  // box, so a long line never pushes the page wide on mobile.
+  pre: ({ children }) => <CodeBlock>{children}</CodeBlock>,
   // Tables scroll inside their own box so a wide one never pushes the page
   // sideways on mobile. Header styling matches the site's eyebrow type.
   table: ({ children }) => (

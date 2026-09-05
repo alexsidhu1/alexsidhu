@@ -75,6 +75,25 @@ That sets up a blank video project and, quietly, teaches Claude Code how the vid
 
 Now open Claude Code inside that folder. You are ready to start.
 
+If you would rather not do any of that by hand, there is a shortcut. Install Claude Code, open it in an empty folder, and paste this in (every box in this guide has a copy button):
+
+\`\`\`text
+I want to make short videos with Claude Code and HyperFrames. Please:
+
+1. Check whether Node.js 20 or newer and FFmpeg are installed on this computer.
+   If either is missing, tell me the simplest way to install it and wait for me.
+2. Create a blank HyperFrames project here with
+   npx hyperframes init my-video --example blank --non-interactive
+   and work inside that folder from now on.
+3. Make sure the HyperFrames skills are installed so you know the rules of the renderer.
+4. Then ask me for a brief, one question at a time: who the video is for, the one
+   thing they should understand, where it will be shown, what it should feel like,
+   and what role sound should play.
+5. Turn my answers into a beat-by-beat storyboard and show it to me before building anything.
+\`\`\`
+
+Claude does the setup, asks you the five questions, and stops at the storyboard so you can read it first.
+
 There is one optional extra. If you sign in to HyperFrames, you get access to their hosted voices, music, stock images, and cloud rendering:
 
 \`\`\`bash
