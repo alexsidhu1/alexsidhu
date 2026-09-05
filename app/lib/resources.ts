@@ -57,29 +57,31 @@ You are still directing the video. You just do it through conversation instead o
 
 ## What you need
 
-Before you begin, install:
+Three free tools, each installed once:
 
-- Node.js 20 or newer
-- FFmpeg
-- Claude Code
+- **Claude Code.** The AI assistant you will be talking to. Install it from claude.com/code.
+- **Node.js** (version 20 or newer). This lets your computer run the video tool. Download it from nodejs.org and run the installer.
+- **FFmpeg.** The program that turns the finished frames into a video file. On a Mac, open Terminal and type \`brew install ffmpeg\`.
 
-Then create a new project:
+If any of that feels unfamiliar, ask Claude Code to walk you through it. Installing tools is something it is good at.
+
+Next, make an empty folder for your video. Open Terminal in that folder and paste this line:
 
 \`\`\`bash
 npx hyperframes init my-video --example blank --non-interactive
 \`\`\`
 
-Open Claude Code inside that folder.
+That sets up a blank video project and, quietly, teaches Claude Code how the video tool works. Without that step, Claude would build a normal web animation, which looks fine in a browser but falls apart when it is turned into video.
 
-HyperFrames installs a set of skills that teach Claude how the renderer works. This matters because a normal web animation can look fine in a browser and still break when it is rendered out of order, frame by frame.
+Now open Claude Code inside that folder. You are ready to start.
 
-You can also sign in to HyperFrames if you want access to hosted voices, music, stock assets, or cloud rendering:
+There is one optional extra. If you sign in to HyperFrames, you get access to their hosted voices, music, stock images, and cloud rendering:
 
 \`\`\`bash
 npx hyperframes auth login
 \`\`\`
 
-That part is optional. You can build and render locally without it.
+You do not need this to begin. Everything in this guide works on your own computer without it.
 
 ## Start with a brief, not a prompt
 
