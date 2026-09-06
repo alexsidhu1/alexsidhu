@@ -966,6 +966,223 @@ His framing is that the models are already good, and the differentiator is the c
 
 I run a version of this setup every day. It knows my clients, my priorities, my writing voice, and it drafts off all three. It's the single highest-leverage thing I've built for myself, and it started with roughly this video.`,
   },
+  {
+    slug: "the-ai-operating-system-playbook",
+    title: "The AI Operating System Playbook",
+    date: "2026-09-06",
+    excerpt:
+      "A practical 4C audit and 30-day build plan for turning a second brain into an AI system that knows your world, reaches live information, performs repeatable work, and runs consistently.",
+    highlights: [
+      "The 4C scorecard: Context, Connections, Capabilities and Cadence",
+      "The exact context pack that turns generic AI into an informed assistant",
+      "A one-page template for turning a repeated process into an AI capability",
+      "A safe 30-day path from one useful workflow to reliable routines",
+    ],
+    content: `## A second brain remembers. An operating system acts.
+
+Most people now have some form of AI second brain: a folder of notes, project instructions, or a chatbot that remembers a few details.
+
+That is useful, but memory is only the first layer.
+
+A working AI system also needs access to current information, a reliable method for doing useful work, and a rhythm for running that work.
+
+Nate Herk calls this [the Four Cs of an AIOS](https://github.com/nateherkai/AIS-OS):
+
+1. **Context:** what the AI knows.
+2. **Connections:** what information and tools it can reach.
+3. **Capabilities:** what repeatable jobs it can perform.
+4. **Cadence:** when those jobs run.
+
+Context comes first. Connections and Capabilities can then develop together around a real workflow. Cadence comes last.
+
+In Nate's shorthand, Context and Connections form the second brain. Capabilities and Cadence add the execution layer that turns it into an AI operating system.
+
+## Score your current system
+
+Give yourself 0 to 3 for each C:
+
+| Score | Meaning |
+|---|---|
+| 0 | It does not exist |
+| 1 | It works informally or occasionally |
+| 2 | It is documented and usually reliable |
+| 3 | It is maintained, tested and trusted |
+
+Now score these four statements:
+
+- **Context:** My AI understands my role, business, priorities, voice and important decisions.
+- **Connections:** It can safely retrieve the current information required for at least one real workflow.
+- **Capabilities:** It can perform at least one repeated process with a consistent, useful output.
+- **Cadence:** A proven process runs on a deliberate trigger and brings uncertain cases to a human.
+
+Your weakest C is normally your next constraint. This is a practical self-audit, not a scientific benchmark.
+
+## C1: Context
+
+Context is the information your AI needs to make a good decision in your world.
+
+Do not dump every document you own into one folder. Good context is relevant, current and structured.
+
+Start with six sections:
+
+| Section | What belongs there |
+|---|---|
+| You | Your role, responsibilities and working style |
+| Business | Customers, offers, model and constraints |
+| Team | Who owns what and when to involve them |
+| Priorities | What matters over the next 30 to 90 days |
+| Voice and rules | How outputs should sound and what AI must not do |
+| Decisions | Important calls, the reasoning and the date |
+
+If you do not have this foundation, use my free [AI Second Brain guide](https://alexsidhu.com/resources/the-ai-second-brain). It includes the template and setup.
+
+Information also has a half-life:
+
+- **Stable:** your role, business model and communication preferences.
+- **Changing:** your team, customers and quarterly goals.
+- **Live:** your inbox, calendar, pipeline and project status.
+
+Stable context can live in maintained files. Live information should usually remain in the system where it was created.
+
+**Do this now:** ask your AI to review your saved context and explain what it understands, what remains unclear, and which facts may be stale. Fix those gaps before adding more tools.
+
+## C2: Connections
+
+Connections let AI reach live information and, when appropriate, act inside the tools where work happens.
+
+The goal is not to connect everything. It is to provide the minimum access required for one valuable workflow.
+
+For a weekly sales briefing, the system might need read access to your CRM, calendar and relevant email. It probably does not need permission to delete messages, rewrite every record or contact customers.
+
+Map the connection before creating it:
+
+| Question | Your answer |
+|---|---|
+| What outcome do I want? | |
+| Where does the required information live? | |
+| What must the AI read? | |
+| What, if anything, must it change? | |
+| Which actions require approval? | |
+| Where should the result appear? | |
+
+Three rules matter:
+
+1. Start read-only.
+2. Grant the minimum access.
+3. Keep sending, spending, deleting, publishing and customer changes behind human approval until deeply trusted.
+
+**Do this now:** connect the single information source that removes the biggest bottleneck in your chosen workflow. Test whether the AI retrieves the right information before letting it act.
+
+## C3: Capabilities
+
+A capability is a repeatable job the AI knows how to perform.
+
+“Help with sales” is vague. “Review open opportunities, find deals with no activity for seven days, and draft the next action for each owner” is a capability.
+
+Define one using this card:
+
+| Field | Definition |
+|---|---|
+| Name | A verb and outcome, such as “Prepare the weekly pipeline brief” |
+| Trigger | The request or event that starts the work |
+| Inputs | The information and systems required |
+| Steps | The process in the correct order |
+| Rules | Boundaries, policies and judgment it must respect |
+| Output | The exact format and destination |
+| Approval | What a human must check |
+| Exceptions | When it should stop and ask |
+| Success | How you know the result is correct and useful |
+
+After doing the process manually, ask:
+
+> Turn the process we just completed into a reusable capability. Document its trigger, inputs, steps, rules, output, approval points, exceptions and definition of success. Identify any judgment calls I made that are not yet explicit.
+
+Good first capabilities include meeting follow-ups, weekly reviews and inbox triage. Each has clear inputs, a visible output and a natural approval point.
+
+**Do this now:** run one weekly process with the AI twice. Save your corrections, then test it on an unusual case. If it only works on the perfect example, it is still a demo.
+
+## C4: Cadence
+
+Cadence is when the system works without waiting for you to remember the perfect prompt.
+
+It may be time-based, such as a Friday pipeline review, or event-based, such as preparing a follow-up when a meeting ends.
+
+Cadence makes an assistant feel like infrastructure. It also repeats mistakes, which is why it comes last.
+
+Move through autonomy gradually:
+
+1. **Observe:** watch the process.
+2. **Suggest:** recommend an action.
+3. **Prepare:** create the finished output for approval.
+4. **Act:** complete low-risk, reversible actions and report them.
+5. **Escalate:** handle the routine and send uncertain cases to a person.
+
+Before scheduling anything, decide:
+
+- What triggers it?
+- What happens if information is missing?
+- Which outputs require approval?
+- Where are failures reported?
+- Who reviews quality?
+- What result would cause you to pause it?
+
+**Do this now:** schedule one proven, low-risk capability in Prepare mode. Review its first four outputs and save every correction inside the process.
+
+## Build one complete loop
+
+Here is a weekly-review example:
+
+| Layer | What it contains |
+|---|---|
+| Context | Goals, priorities, team responsibilities and decisions |
+| Connections | Calendar, project system and meeting notes |
+| Capability | Compare planned and completed work, identify drift, propose next actions |
+| Cadence | Prepare the review every Friday for approval |
+
+That is the correct unit of AI adoption: one useful loop, not a collection of tools.
+
+## Your 30-day plan
+
+### Week 1: Context
+
+Choose one workflow. Build the six context sections. Define the result the workflow should produce.
+
+### Week 2: Connections
+
+Map the required information. Connect the most important source with read-only access. Test retrieval on five real examples.
+
+### Week 3: Capability
+
+Perform the process twice. Complete the capability card. Add the judgment calls, exceptions and success criteria.
+
+### Week 4: Cadence
+
+Run the capability in Prepare mode. Review four outputs. Save every correction before considering more autonomy.
+
+At the end of the month, you should have one reliable loop. Build the second using what the first taught you.
+
+## Where the DIY version stops
+
+A personal system can become extremely useful with a context folder, a few careful connections and several well-designed capabilities.
+
+A company is harder. Context is spread across people and tools. Permissions differ by role. Processes change. Customer information needs protection. Someone must own failures, updates and quality.
+
+That is the line between a second brain and the systems we build at Whitehorse AI.
+
+We find the workflows where AI can create real value, then build the company context, connections, capabilities and operating rhythm around them. The goal is not maximum automation. It is a system the business can trust.
+
+If this audit exposed that gap, reply to the email that delivered this guide with the word **audit**. I will show you how we would map it.
+
+## Start here
+
+Choose one repeated workflow that costs time, delays revenue or regularly drops the ball.
+
+Build it through Context, Connections and Capabilities, then earn the Cadence.
+
+One trusted loop is worth more than twenty AI experiments.
+
+Built by Alex Sidhu, Whitehorse AI.`,
+  },
 ];
 
 export function getResource(slug: string): Resource | undefined {
