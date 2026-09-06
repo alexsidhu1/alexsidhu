@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import GuideBody from "../../components/GuideBody";
+import CopyGuideButton from "../../components/CopyGuideButton";
 import SubscribeForm from "../../components/SubscribeForm";
 import { getResource, resources } from "../../lib/resources";
 
@@ -70,6 +71,8 @@ export default async function ResourcePage({
           </div>
 
           <hr className="border-warm-border mb-12" />
+
+          <CopyGuideButton title={r.title} content={r.content} />
 
           <article>
             <GuideBody content={r.content} />
