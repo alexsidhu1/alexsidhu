@@ -11,6 +11,18 @@ export type Resource = {
 
 export const resources: Resource[] = [
   {
+  "slug": "the-unslop-skill",
+  "title": "The Unslop skill",
+  "date": "2026-09-21",
+  "excerpt": "The skill from my video, with the original source and a prompt to use on your next draft.",
+  "highlights": [
+    "The original Unslop skill, with full credit to its source",
+    "A copy-and-paste prompt for your next draft",
+    "A short example of clearer writing"
+  ],
+  "content": "Here is the Unslop skill from the video.\n\n[Open the original Unslop skill on GitHub](https://github.com/cursor/plugins/blob/main/pstack/skills/unslop/SKILL.md)\n\n[Open the plain-text skill file](https://raw.githubusercontent.com/cursor/plugins/main/pstack/skills/unslop/SKILL.md)\n\n## Use it on your next draft\n\nOpen the plain-text file above. Copy its instructions into your AI chat, followed by the draft you want edited. Then add:\n\n> Edit this draft using the Unslop rules. Keep my meaning and voice. Do not add facts or claims. Return the edited draft, followed by any factual claims I should check.\n\nThis uses the instructions directly. It does not install a plugin.\n\n## What it does\n\nUnslop checks writing for common AI habits, rewrites it, and checks it again. Its rules cover filler, vague sources, inflated language and repetitive phrasing. It also asks for clearer sentences and concrete wording.\n\nRead the result before you publish. Keep the changes that sound like you.\n\n## A quick example\n\nAn illustrative before-and-after, written for this guide:\n\n**Before:** Our innovative solution facilitates seamless collaboration across your organisation.\n\n**After:** Your team can edit the same document together.\n\nThe second sentence only works if that is what the product actually does. Clearer writing still needs accurate facts.\n\n## Credit\n\nThe original skill is part of pstack in the cursor/plugins repository. It is freely accessible at the links above. This page collects the source and a usage prompt; the skill is not an Alex Sidhu product.\n\n## For your business\n\nA writing skill helps with one draft. If you want AI working with your team's context and repeatable processes, reply to my newsletter with the word audit.\n\nBuilt by Alex Sidhu, Whitehorse AI.\n"
+},
+  {
     slug: "making-videos-with-claude-code",
     title: "Making Short Videos with Claude Code",
     date: "2026-09-05",

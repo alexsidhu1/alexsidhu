@@ -11,10 +11,12 @@ export default function GuideCapture({
   content,
   highlights,
   source = "second-brain-guide",
+  buttonLabel = "Send me the guide",
 }: {
   content: string;
   highlights: string[];
   source?: string;
+  buttonLabel?: string;
 }) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<Status>("idle");
@@ -90,7 +92,7 @@ export default function GuideCapture({
             disabled={status === "loading"}
             className="bg-warm-accent text-cream rounded-md px-6 py-3 font-medium hover:bg-warm-text transition-colors disabled:opacity-60 shrink-0"
           >
-            {status === "loading" ? "Sending..." : "Send me the guide"}
+            {status === "loading" ? "Sending..." : buttonLabel}
           </button>
         </div>
         {status === "error" && (
