@@ -86,16 +86,50 @@ const components: Components = {
     <strong className="font-medium text-warm-text">{children}</strong>
   ),
   em: ({ children }) => <em className="italic">{children}</em>,
-  a: ({ href, children }) => (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-warm-accent underline underline-offset-4 hover:opacity-80"
-    >
-      {children}
-    </a>
+  // Standalone images. Spans keep the markup valid inside the wrapping <p>.
+  img: ({ src, alt }) => (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={typeof src === "string" ? src : undefined}
+      alt={alt ?? ""}
+      loading="lazy"
+      className="block w-full rounded-xl border border-warm-border"
+    />
   ),
+  // A link wrapping an image, e.g. [![Title](thumb.jpg)](youtube-url),
+  // renders as a clickable video thumbnail with a play button.
+  a: ({ href, children, node }) =>
+    node?.children.some((c) => c.type === "element" && c.tagName === "img") ? (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative block my-2 overflow-hidden rounded-xl shadow-[0_12px_32px_-16px_rgba(28,25,23,0.35)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-warm-accent"
+      >
+        <span className="block aspect-video [&_img]:h-full [&_img]:object-cover [&_img]:transition-transform [&_img]:duration-300 group-hover:[&_img]:scale-[1.02]">
+          {children}
+        </span>
+        <span
+          aria-hidden
+          className="absolute inset-0 flex items-center justify-center bg-warm-text/10 transition-colors group-hover:bg-warm-text/20"
+        >
+          <span className="flex h-16 w-16 items-center justify-center rounded-full bg-cream/95 shadow-lg transition-transform group-hover:scale-105">
+            <svg viewBox="0 0 24 24" className="ml-1 h-7 w-7 fill-warm-accent">
+              <path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z" />
+            </svg>
+          </span>
+        </span>
+      </a>
+    ) : (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-warm-accent underline underline-offset-4 hover:opacity-80"
+      >
+        {children}
+      </a>
+    ),
 };
 
 export default function GuideBody({ content }: { content: string }) {

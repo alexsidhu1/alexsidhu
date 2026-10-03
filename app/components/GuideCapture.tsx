@@ -12,11 +12,13 @@ export default function GuideCapture({
   highlights,
   source = "second-brain-guide",
   buttonLabel = "Send me the guide",
+  resourceLink,
 }: {
   content: string;
   highlights: string[];
   source?: string;
   buttonLabel?: string;
+  resourceLink?: { url: string; label: string };
 }) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<Status>("idle");
@@ -43,6 +45,20 @@ export default function GuideCapture({
       setStatus("error");
       setMessage(err instanceof Error ? err.message : "Something went wrong.");
     }
+  }
+
+  if (status === "success" && resourceLink) {
+    return (
+      <div role="status" aria-live="polite">
+        <p className="mb-5 text-warm-text leading-relaxed">
+          You&apos;re in. Your timeline is ready. Save the link so you can come back anytime.
+        </p>
+        <a href={resourceLink.url} target="_blank" rel="noopener noreferrer"
+          className="inline-flex rounded-md bg-warm-accent px-6 py-3 font-medium text-cream hover:bg-warm-text transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-warm-accent">
+          {resourceLink.label} <span aria-hidden="true" className="ml-2">↗</span>
+        </a>
+      </div>
+    );
   }
 
   if (status === "success") {
@@ -96,7 +112,7 @@ export default function GuideCapture({
           </button>
         </div>
         {status === "error" && (
-          <p className="mt-3 text-sm text-warm-accent">{message}</p>
+          <p role="alert" className="mt-3 text-sm text-warm-accent">{message}</p>
         )}
         <p className="mt-4 text-sm text-warm-muted leading-relaxed">
           You&apos;ll also get the newsletter. One useful email a week on AI for

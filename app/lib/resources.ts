@@ -10,6 +10,42 @@ export type Resource = {
 };
 
 export const resources: Resource[] = [
+{
+  "slug": "the-ai-video-watchlist",
+  "title": "The AI Video Watchlist",
+  "date": "2026-10-03",
+  "excerpt": "Three free videos on how AI agents work, building your own AI executive assistant and how LLMs work, collected in one place by Alex Sidhu.",
+  "highlights": [
+    "All three original YouTube links, in watch order",
+    "A short guide to what each video covers",
+    "A simple next step once you've watched them"
+  ],
+  "content": "Here are the three videos, in order. Start with the first, then work through the list. Together they take about two hours.\n\n## 1. How AI agents & Claude skills work (Clearly Explained)\n\n**Greg Isenberg with Ras Mic**\n\nStart here to see how agents actually work. Context windows, what a skill is under the hood, and why the context and setup you build around a model matter more than the model itself.\n\n[![Watch How AI agents & Claude skills work on YouTube](https://i.ytimg.com/vi/S_oN3vlzpMw/maxresdefault.jpg)](https://www.youtube.com/watch?v=S_oN3vlzpMw)\n\n## 2. Turn Claude Code Into Your Executive Assistant in 27 Mins\n\n**Nate Herk**\n\nNext, build one. A working AI executive assistant, set up in phases: the project, the context and rules, the first skills, then growing it over time.\n\n[![Watch Turn Claude Code Into Your Executive Assistant on YouTube](https://i.ytimg.com/vi/mi4hcipESKQ/maxresdefault.jpg)](https://www.youtube.com/watch?v=mi4hcipESKQ)\n\n## 3. [1hr Talk] Intro to Large Language Models\n\n**Andrej Karpathy**\n\nFinish under the hood. What a large language model is, how it is trained, and where it is heading. Recorded in late 2023, so some product details have moved on, but the mental model holds up.\n\n[![Watch Intro to Large Language Models on YouTube](https://i.ytimg.com/vi/zjkBMFhNj_g/maxresdefault.jpg)](https://www.youtube.com/watch?v=zjkBMFhNj_g)\n\n## Turn watching into doing\n\nAfter watching, pick one recurring task in your week. Write down its inputs, the result you want, and what you would need to check before using that result. Start with that one task.\n\nThis exercise is my suggested next step, not a quote from the videos.\n\n## When you want help applying it\n\nIf you want to turn these ideas into a system built around your business, reply to my newsletter with **audit**. We can look at where AI would be useful in your team's work.\n\nThe videos are free on YouTube and belong to their respective creators. This watchlist is a curated collection, not an original course or an endorsement from those creators. Interfaces and product availability may have changed since recording.\n\nBuilt by Alex Sidhu, Whitehorse AI.\n"
+},
+{
+  "slug": "three-reads-on-the-future-of-ai",
+  "title": "Three Reads on the Future of AI",
+  "date": "2026-09-30",
+  "excerpt": "AI 2027, Dwarkesh Patel’s case for longer timelines, and Leopold Aschenbrenner’s Situational Awareness. Three perspectives, collected in one place.",
+  "highlights": [
+    "All three original article links, in reading order",
+    "A short introduction to each piece",
+    "Different views on AI timelines and what comes next"
+  ],
+  "content": "Three perspectives on where AI could go next. Read them in this order, compare their assumptions and make up your own mind.\n\n## 1. AI 2027\n\n**Daniel Kokotajlo, Scott Alexander, Thomas Larsen, Eli Lifland & Romeo Dean**\n\nA detailed scenario of how AI could develop rapidly, with two possible endings.\n\n[Read AI 2027](https://ai-2027.com/)\n\n## 2. Why I don’t think AGI is right around the corner\n\n**Dwarkesh Patel**\n\nThe case for longer timelines, focused on what AI still needs to learn on the job.\n\n[Read Why I don’t think AGI is right around the corner](https://www.dwarkesh.com/p/timelines-june-2025)\n\n## 3. Situational Awareness: The Decade Ahead\n\n**Leopold Aschenbrenner**\n\nAn essay series on superintelligence, the infrastructure behind it and the geopolitical stakes.\n\n[Read Situational Awareness: The Decade Ahead](https://situational-awareness.ai/)\n\n## A question to take into each read\n\nWhat has to be true for this argument to hold, and what evidence would change your mind?\n\nThese pieces were published in 2024 and 2025. Read their forecasts in that context. Situational Awareness is a series of essays, so allow extra time for the third read.\n\nAll three are freely available from their original publishers. This collection links to their work; the writing and ideas belong to the credited authors.\n\n[Bookmark the reading list](/resources/three-reads-on-the-future-of-ai)\n\nCurated by Alex Sidhu, Whitehorse AI.\n"
+},
+  {
+  "slug": "the-ai-starter-watchlist",
+  "title": "The AI Starter Watchlist",
+  "date": "2026-09-28",
+  "excerpt": "Three free videos on AI agents, AI operating systems and using LLMs, collected in one place by Alex Sidhu.",
+  "highlights": [
+    "All three original YouTube links, in watch order",
+    "A short guide to what each video covers",
+    "The selected starting points, ready to play"
+  ],
+  "content": "Here are the three videos, in order. Start with the first, then work through the list. The second and third links open at the selected timestamps; rewind to the beginning if you want the full introduction.\n\n## 1. AI Agents, Clearly Explained\n\n**Jeff Su**\n\nStart here for an introduction to AI agents and how they differ from AI chats and workflows.\n\n[Watch video 1 on YouTube](https://www.youtube.com/watch?v=FwOTs4UxQS4)\n\n## 2. Build & Sell Claude Code Operating Systems (2+ Hour Course)\n\n**Nate Herk**\n\nNext, explore an AI operating system built around four Cs: context, connections, capabilities and cadence.\n\n[Watch video 2 on YouTube, starting at 14:48](https://www.youtube.com/watch?v=bCljOfCH8Ms&t=888s)\n\n## 3. How I use LLMs\n\n**Andrej Karpathy**\n\nFinish with a practical tour of using large language models.\n\n[Watch video 3 on YouTube, starting at 0:05](https://www.youtube.com/watch?v=EWvNQjAaOHw&t=5s)\n\n## Turn watching into doing\n\nAfter watching, pick one recurring task in your week. Write down its inputs, the result you want, and what you would need to check before using that result. Start with that one task.\n\nThis exercise is my suggested next step, not a quote from the videos.\n\n## When you want help applying it\n\nIf you want to turn these ideas into a system built around your business, reply to my newsletter with **audit**. We can look at where AI would be useful in your team's work.\n\nThe videos are free on YouTube and belong to their respective creators. This watchlist is a curated collection, not an original course or an endorsement from those creators. Interfaces and product availability may have changed since recording.\n\nBuilt by Alex Sidhu, Whitehorse AI.\n"
+},
   {
     "slug": "animated-decks-in-claude-design",
     "title": "Animated Decks in Claude Design",
