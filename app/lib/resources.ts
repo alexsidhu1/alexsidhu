@@ -11,6 +11,18 @@ export type Resource = {
 
 export const resources: Resource[] = [
 {
+  "slug": "the-ai-podcast-list",
+  "title": "The AI Podcast List",
+  "date": "2026-10-03",
+  "excerpt": "Three free podcasts for getting good at AI: Acquired's Google trilogy, All-In's AI debates and Colin and Samir on building an audience. Collected by Alex Sidhu.",
+  "highlights": [
+    "Direct links to all three podcasts, in listening order",
+    "The exact Acquired episodes to start with",
+    "Why each one is on the list"
+  ],
+  "content": "Here are the three podcasts, in order. Each one answers a different question: how we got here, what happens next, and how you stand out.\n\n## 1. Acquired: the Google trilogy\n\n**Ben Gilbert & David Rosenthal**\n\nStart with how we got here. Three long episodes on how Google started, what it built, and why it became the breeding ground for most of the AI we use today. Watch them in order.\n\n### Part I: Origins of Search\n\n[![Watch Google Part I: Origins of Search on YouTube](https://i.ytimg.com/vi/v1nkN0sM2wc/maxresdefault.jpg)](https://www.youtube.com/watch?v=v1nkN0sM2wc)\n\n### Part II: Alphabet\n\n[![Watch Google Part II: Alphabet on YouTube](https://i.ytimg.com/vi/QhAftC_zFr8/maxresdefault.jpg)](https://www.youtube.com/watch?v=QhAftC_zFr8)\n\n### Part III: The AI Company\n\n[![Watch Google Part III: The AI Company on YouTube](https://i.ytimg.com/vi/lCEB7xHer5U/maxresdefault.jpg)](https://www.youtube.com/watch?v=lCEB7xHer5U)\n\nPrefer audio? The episodes, with show notes, are also on [acquired.fm](https://www.acquired.fm/episodes/google).\n\n## 2. All-In: the AI discussions\n\n**Chamath Palihapitiya, Jason Calacanis, David Sacks & David Friedberg**\n\nNext, what happens next. Skip straight to their AI discussions: investors and founders debating the companies, the competition and where the money is going. Listen to their reasoning, even when you disagree with the conclusion.\n\n[Browse All-In's AI episodes on YouTube](https://www.youtube.com/@allin/search?query=AI)\n\n## 3. The Colin and Samir Show\n\n**Colin Rosenblum & Samir Chaudry**\n\nFinish with how you stand out when everyone has access to AI. They break down how creators build audiences and businesses. If you are using AI to make content, understanding why people actually watch is just as useful as learning how to produce it.\n\n[Watch Colin and Samir on YouTube](https://www.youtube.com/@ColinandSamir)\n\n## The short version\n\nAcquired for the companies. All-In for the debates. Colin and Samir for the audience you are trying to reach.\n\n## When you want help applying it\n\nIf you want to turn these ideas into an AI system built around your business, reply to my newsletter with **audit**. We can look at where AI would be useful in your team's work.\n\nThese podcasts are free and belong to their respective creators. This list is a curated collection, not an endorsement from those creators.\n\nBuilt by Alex Sidhu, Whitehorse AI.\n"
+},
+{
   "slug": "the-ai-video-watchlist",
   "title": "The AI Video Watchlist",
   "date": "2026-10-03",
