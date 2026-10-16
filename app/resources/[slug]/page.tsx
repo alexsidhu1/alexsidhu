@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import GuideBody from "../../components/GuideBody";
 import CopyGuideButton from "../../components/CopyGuideButton";
+import GuideCapture from "../../components/GuideCapture";
 import SubscribeForm from "../../components/SubscribeForm";
 import { getResource, resources } from "../../lib/resources";
 
@@ -72,12 +73,24 @@ export default async function ResourcePage({
 
           <hr className="border-warm-border mb-12" />
 
-          <CopyGuideButton title={r.title} content={r.content} />
+          {r.gated ? (
+            <GuideCapture
+              content={r.content}
+              highlights={r.highlights}
+              source={`${r.slug}-resource`}
+              buttonLabel="Get the guide"
+            />
+          ) : (
+            <>
+              <CopyGuideButton title={r.title} content={r.content} />
 
-          <article>
-            <GuideBody content={r.content} />
-          </article>
+              <article>
+                <GuideBody content={r.content} />
+              </article>
+            </>
+          )}
 
+          {!r.gated && (
           <div className="mt-16 pt-10 border-t border-warm-border">
             <p className="text-xs tracking-[0.2em] uppercase text-warm-muted mb-4">
               Newsletter
@@ -91,6 +104,7 @@ export default async function ResourcePage({
             </p>
             <SubscribeForm />
           </div>
+          )}
         </div>
       </main>
 
