@@ -18,13 +18,14 @@ export default function ClickSound() {
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
     const isMuted = stored === "true";
-    setMuted(isMuted);
+    const preferenceFrame = requestAnimationFrame(() => setMuted(isMuted));
     mutedRef.current = isMuted;
 
-    const audio = new Audio("/button-click.mp3");
+    const audio = new Audio("/button-click-sublime.mp3");
     audio.preload = "auto";
     audio.volume = 0.35;
     audioRef.current = audio;
+    return () => cancelAnimationFrame(preferenceFrame);
   }, []);
 
   // Click handler scoped to buttons and links only. Uses a fresh clone per
